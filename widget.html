@@ -342,7 +342,7 @@ div#menuperfil {
                     {
                         xl.style.zoom = "100%";
                         localStorage.setItem('perfilzoom','0');
-
+//juan raymundo vega traductor quechua
                     }
 
                 }
@@ -705,6 +705,22 @@ div#menuperfil {
   </script>
 
 <script>
+
+    function fuenteTono(tono)
+    {
+        localStorage.setItem('perfilcolorfuente',tono);
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        xl.style.color =tono;
+        zl.style.color =tono;
+        
+
+
+
+
+    }
+
     function fuenteAmarilla()
     {
         localStorage.setItem('perfilcolorfuente','amarilla');
@@ -815,6 +831,8 @@ div#menuperfil {
         localStorage.setItem('perfilcolorfuente','sincolor');
         const xl = document.querySelector('html');
         const zl = document.querySelector('body');
+        xl.style.color = "";
+        zl.style.color = "";
 
         xl.classList.remove("fuenteAmarilla");
         zl.classList.remove("fuenteAmarilla");
@@ -878,6 +896,8 @@ div#menuperfil {
         localStorage.setItem('perfilcolorfuente','negra');
         const xl = document.querySelector('html');
         const zl = document.querySelector('body');
+        xl.color = colorc;
+        zl.color = colorc;
 
         xl.classList.add("fuenteNegra");
         zl.classList.add("fuenteNegra");
@@ -1084,6 +1104,8 @@ div#menuperfil {
 <script>
     function cargaFuenteColor()
     {
+        fuenteTono(localStorage.getItem('perfilcolorfuente'));
+
         if (localStorage.getItem('perfilcolorfuente')=='amarilla')
         {
             fuenteAmarilla();
@@ -1879,6 +1901,28 @@ div#menuperfil {
     }
 </script>
 
+
+<script>
+    function colorFondo(colorcito)
+    {
+            var el = document.querySelectorAll('*');
+  
+              for(var i=0;i<el.length;i++)
+              {
+                    if (colorcito=="sincolor")
+                    {
+                        el[i].style.backgroundColor = "";
+
+                    }
+                    else
+                    {
+                        el[i].style.backgroundColor = colorcito;
+                    }                
+              }
+        
+    }
+</script>
+
 <script>
     function colorSombra(colorcito)
     {
@@ -2465,11 +2509,33 @@ div#menuperfil {
       <div class=grid-content>
           <p data-locale=adjust_text_color id="adjusttextcolorPerfil">Ajustar el color del Texto</p>
               <div class=colors-container>
-                  <div class="grid-colors font-color"> 
-                    <div data-value="#000000" style="--bg-color:#000000" onclick="fuenteNegra();"></div>
-                  
-                    <div data-value="#ffffff" style="--bg-color:#ffffff" onclick="fuenteBlanca();"></div>
-                  
+                  <div class="grid-colors font-color">
+                    <div data-value="#ffffff" style="--bg-color:#ffffff" onclick="fuenteTono('#ffffff');"></div>
+                    <div data-value="#f5f5f5" style="--bg-color:#f5f5f5" onclick="fuenteTono('#f5f5f5');"></div>
+                    <div data-value="#FEFFEF" style="--bg-color:#FEFFEF" onclick="fuenteTono('#FEFFEF');"></div>
+                    <div data-value="##FFF8DC" style="--bg-color:#FFF8DC" onclick="fuenteTono('#FFF8DC');"></div>
+                    <div data-value="#FEE4C3" style="--bg-color:#FEE4C3" onclick="fuenteTono('#FEE4C3');"></div>
+                    <div data-value="#FFFF00" style="--bg-color:#FFFF00" onclick="fuenteTono('#FFFF00');"></div>
+                    
+                    
+                  <br>
+                  <div data-value="#99FB98" style="--bg-color:#99FB98" onclick="fuenteTono('#99FB98');"></div>
+                  <div data-value="#00FF01" style="--bg-color:#00FF01" onclick="fuenteTono('#00FF01');"></div>
+                  <div data-value="#018810" style="--bg-color:#018810" onclick="fuenteTono('#018810');"></div>
+                  <div data-value="#00FFFF" style="--bg-color:#00FFFF" onclick="fuenteTono('#00FFFF');"></div>
+                  <div data-value="#4465FE" style="--bg-color:#4465FE" onclick="fuenteTono('#4465FE');"></div>
+                  <div data-value="#0001FE" style="--bg-color:#0001FE" onclick="fuenteTono('#0001FE');"></div>
+                  <br> 
+
+
+                  <div data-value="#FF00FE" style="--bg-color:#FF00FE" onclick="fuenteTono('#FF00FE');"></div>
+                  <div data-value="#DD1288" style="--bg-color:#DD1288" onclick="fuenteTono('#DD1288');"></div>
+                  <div data-value="#FE0000" style="--bg-color:#FE0000" onclick="fuenteTono('#FE0000');"></div>
+                  <div data-value="#EE0000" style="--bg-color:#EE0000" onclick="fuenteTono('#EE0000');"></div>
+                  <div data-value="#444444" style="--bg-color:#444444" onclick="fuenteTono('#444444');"></div>
+                  <div data-value="#000000" style="--bg-color:#000000" onclick="fuenteTono('#000000');"></div>
+
+                  <!--<div data-value="#000000" style="--bg-color:#000000" onclick="fuenteNegra();"></div>
                     <div data-value="#e02b20" style="--bg-color:#e02b20" onclick="fuenteRoja();"></div>
                   
                     <div data-value="#e09900" style="--bg-color:#e09900" onclick="fuenteNaranja();"></div>
@@ -2481,6 +2547,7 @@ div#menuperfil {
                     <div data-value="#0671c3" style="--bg-color:#0671c3" onclick="fuenteAzul();"></div>
                   
                     <div data-value="#8300e9" style="--bg-color:#8300e9" onclick="fuenteVioleta();"></div>
+                  -->
                   </div>
                   <div class=cancel onclick="fuenteCancelaColor();"></div>
               </div>
@@ -2522,7 +2589,7 @@ div#menuperfil {
 
   <div class=category>
       <div class=title-container>
-          <h5 data-locale=screen_shader id="screenshaderPerfil">Filtro Pantalla Color:</h5>
+          <h5 data-locale=screen_fondo id="screenfondoPerfil">Color de Fondo:</h5>
       </div>
       <div class=grid-container>
           <div id=screen-tint-color class="grid-item span-2 stay-active">
@@ -2531,21 +2598,21 @@ div#menuperfil {
                   
                   <div class="colors-container">
                     <div class="grid-colors screen-tint-color"> 
-                      <div data-value="#000000" style="--bg-color:#000000" onclick="colorSombra('negro');"></div>
+                      <div data-value="#000000" style="--bg-color:#000000" onclick="colorFondo('#000000');"></div>
                     
-                      <div data-value="#e02b20" style="--bg-color:#e02b20" onclick="colorSombra('rojo');"></div>
+                      <div data-value="#e02b20" style="--bg-color:#e02b20" onclick="colorFondo('#e02b20');"></div>
                     
-                      <div data-value="#e09900" style="--bg-color:#e09900" onclick="colorSombra('naranja');"></div>
+                      <div data-value="#e09900" style="--bg-color:#e09900" onclick="colorFondo('#e09900');"></div>
                     
-                      <div data-value="#eef002" style="--bg-color:#eef002" onclick="colorSombra('amarillo');"></div>
+                      <div data-value="#eef002" style="--bg-color:#eef002" onclick="colorFondo('#eef002');"></div>
                     
-                      <div data-value="#7cda24" style="--bg-color:#7cda24" onclick="colorSombra('verde');"></div>
+                      <div data-value="#7cda24" style="--bg-color:#7cda24" onclick="colorFondo('#7cda24');"></div>
                     
-                      <div data-value="#0671c3" style="--bg-color:#0671c3" onclick="colorSombra('azul');"></div>
+                      <div data-value="#0671c3" style="--bg-color:#0671c3" onclick="colorFondo('#0671c3');"></div>
                     
-                      <div data-value="#8300e9" style="--bg-color:#8300e9" onclick="colorSombra('violeta');"></div>
+                      <div data-value="#8300e9" style="--bg-color:#8300e9" onclick="colorFondo('#8300e9');"></div>
                     </div>
-                    <div class="cancel" onclick="colorSombra('sincolor');"></div>
+                    <div class="cancel" onclick="colorFondo('sincolor');"></div>
                     </div>
               </div>
               <div class=status></div>
@@ -2553,6 +2620,40 @@ div#menuperfil {
          
       </div>
   </div>
+
+  <div class=category>
+    <div class=title-container>
+        <h5 data-locale=screen_shader id="screenshaderPerfil">Filtro Pantalla Color:</h5>
+    </div>
+    <div class=grid-container>
+        <div id=screen-tint-color class="grid-item span-2 stay-active">
+            <div class=grid-content>
+                <p data-locale=adjust_tint_color id="adjusttintcolorPerfil">Ajuste el Color del Filtro</p>
+                
+                <div class="colors-container">
+                  <div class="grid-colors screen-tint-color"> 
+                    <div data-value="#000000" style="--bg-color:#000000" onclick="colorSombra('negro');"></div>
+                  
+                    <div data-value="#e02b20" style="--bg-color:#e02b20" onclick="colorSombra('rojo');"></div>
+                  
+                    <div data-value="#e09900" style="--bg-color:#e09900" onclick="colorSombra('naranja');"></div>
+                  
+                    <div data-value="#eef002" style="--bg-color:#eef002" onclick="colorSombra('amarillo');"></div>
+                  
+                    <div data-value="#7cda24" style="--bg-color:#7cda24" onclick="colorSombra('verde');"></div>
+                  
+                    <div data-value="#0671c3" style="--bg-color:#0671c3" onclick="colorSombra('azul');"></div>
+                  
+                    <div data-value="#8300e9" style="--bg-color:#8300e9" onclick="colorSombra('violeta');"></div>
+                  </div>
+                  <div class="cancel" onclick="colorSombra('sincolor');"></div>
+                  </div>
+            </div>
+            <div class=status></div>
+        </div>
+       
+    </div>
+</div>
 
   
 
