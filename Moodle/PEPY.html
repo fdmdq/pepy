@@ -1,0 +1,2830 @@
+<script>
+    function mostrarPerfilito() 
+    {
+          var x = document.getElementById("perfilito");
+          
+          if (x.classList.contains('escondido')) 
+          {
+              //  x.style.display = "block";
+               x.classList.remove('escondido');
+          } 
+          else 
+          {
+             //   x.style.display = "none";
+              x.classList.add('escondido');
+          }
+
+          
+
+          
+
+
+    }
+</script>
+
+
+<script>
+  function _ocultarIframe()
+  {
+    document.getElementById('perfilito').style.display = 'none'
+  }  
+</script>
+
+<link rel="stylesheet" type="text/css" href="http://localhost/eperfil/css/widgetbotoncito.css" />
+<link rel="stylesheet" type="text/css" href="http://localhost/eperfil/css/sidebar.css" />
+
+<link rel="stylesheet" type="text/css" href="http://localhost/eperfil/css/efectosClass.css" />
+<script src="http://localhost/eperfil/js/FileSaver.js"></script>
+<script>
+
+    function exportarArchivoPerfil() {
+
+        var userInput = guardarVariables();
+        
+        var blob = new Blob([userInput], { type: "text/plain;charset=utf-8" });
+        saveAs(blob, "portable.perfil");
+    }
+
+    function cambiarNombrePerfil(nombrecito){
+        localStorage.setItem('perfilnombre',nombrecito);
+
+    }
+
+    function cargarNombrePerfil(nombrecito){
+        document.getElementById('perfilnombre').value = localStorage.getItem('perfilnombre',nombrecito);
+
+    }
+
+    function abrirPerfilPortable(){
+        /*var input = document.createElement('input');
+        input.type = 'file';
+        input.click();
+        alert(input);*/
+
+        //
+        var input = document.createElement('input');
+        input.type = 'file';
+
+        input.onchange = e => 
+        { 
+            var file = e.target.files[0]; 
+     
+            var reader = new FileReader();
+            reader.readAsText(file,'UTF-8');
+
+            // here we tell the reader what to do when it's done reading...
+            reader.onload = readerEvent => 
+            {
+                var content = readerEvent.target.result; // this is the content!
+                //console.log( content );
+                var lines = content.split('\n');
+                for(var i = 0;i < lines.length;i++)
+                {
+                    //console.log(lines[i]);
+                    let andromeda = lines[i];
+                    let puntacadena = andromeda.search(":");
+                    let shunperfilnom = andromeda.substring(0, puntacadena); //nombre de la variable local storage
+                    let shunperfilval = andromeda.substring(puntacadena+1,andromeda.length); // valor de la variable local storage
+                    localStorage.setItem(shunperfilnom,shunperfilval);
+                //code here using lines[i] which will give you each line
+                }
+                window.location.reload();
+            }
+        }
+
+        input.click();
+
+        //
+    }
+
+    function guardarVariables()
+    {
+        let guardando = "";
+        for (var i = 0; i < localStorage.length; i++)
+        {
+            let texti = localStorage.key(i);
+            // do something with localStorage.getItem(localStorage.key(i));
+            if (texti.includes('perfil'))
+            {
+                console.log('-----');
+                guardando += localStorage.key(i) +':'+localStorage.getItem(localStorage.key(i))+'\n'; 
+                console.log(localStorage.key(i));
+                console.log(localStorage.getItem(localStorage.key(i)));
+            }
+        }
+        return guardando;
+        
+    }
+
+    function mostrarVariables(){
+            for (var i = 0; i < localStorage.length; i++)
+            {
+                let texti = localStorage.key(i);
+            // do something with localStorage.getItem(localStorage.key(i));
+                if (texti.includes('perfil'))
+                {
+                    console.log('-----');
+                    console.log(localStorage.key(i));
+                    console.log(localStorage.getItem(localStorage.key(i)));
+                }
+            }
+        }
+
+
+
+</script>
+
+<a href="#" class="floatrr" style="z-index:1;" >
+<img width="60" height="60" data-uw-rm-ignore="" class="ui_wrr" aria-hidden="true" alt="ePerfilPEPY" src="http://localhost/eperfil/images/botoncito.svg" style="z-index:1;" onclick="mostrarPerfilito()">
+</a>
+
+
+
+
+<style>
+div#perfilito 
+{
+  position: absolute;
+  z-index: 1;
+  left: auto;
+  top: 20%;
+  width: 35%;
+  height: 100%;
+  background: #e7e6e3;
+}
+
+  
+  
+
+
+.escondido
+{
+  display:none;
+}
+
+
+div#menuperfil {
+    background: #e7e6e3;
+}
+</style>
+  
+<script>
+    function reiniciarConfi(){
+        localStorage.clear();
+        window.location.reload();
+    }
+</script>
+  	
+
+    <div id="perfilito" class="escondido" src="http://localhost/gengar/html/sidebar.html" width="300" height="500"	  class="">  
+
+    <div id='menuperfil'>
+
+
+
+
+    <div id=main>
+      <div id=header>
+        <div class=left-div>
+          <h5 class=toggle data-locale=extName style="padding:10px;" id="tituloperfil">Perfil Portable</h5>
+          <label class=switch>
+            <input id=toggle-ext type=checkbox>
+            <div class="slider round"></div>
+          </label>
+        </div>
+
+        <script>
+          function _enviarAlPadre(){
+          //window.parent._ocultarIframe();
+          //window.close;
+          document.getElementById('perfilito').style.display = 'none';
+          }
+          function myFunctionReload(idioma) {
+            localStorage.setItem('perfilidioma',idioma);
+            window.location.reload();
+          }
+        </script>
+
+        <script>
+            function checkAddress(checkbox)
+            {
+                if (checkbox.checked)
+                {                   
+                    localStorage.setItem(checkbox.id,'1');
+                }
+                else
+                {
+                    localStorage.setItem(checkbox.id,'0');
+                }
+            }
+        </script>
+
+        <!--<button id=resetBtn class="btn btn-primary btn-primary-custom" data-locale=reset_all_settings onclick="reiniciarConfi()">Reset all settings</button> -->
+        <div id=closeBtn onclick="myFunctionReload()"></div>
+      </div><!--id header-->
+
+      <hr>
+      <div class=category>
+        <div class=title-container style="text-align: center!important;display:block;">
+          <label id="abmperfil">Nombre Perfil:</label>&nbsp;<input type="text" id='perfilnombre' width="300px" onchange="cambiarNombrePerfil(this.value)">
+          <ul class="menucrear">
+          <li><a id="crearPerfil" href="#" onclick="reiniciarConfi();">Crear</a></li>
+		<li><a id="cargarPerfil" href="#" onclick="abrirPerfilPortable()">Importar</a></li>
+          <li><a id="exportarPerfil" href="#" onclick="exportarArchivoPerfil()">Exportar</a></li>
+		  </ul>
+
+        </div> <!--title container-->
+
+        <div class=grid-container>
+        </div>
+      </div><!--category-->
+
+     
+<hr>
+<div class="category" onclick="descolapsar(this);">
+    <h5 data-locale=text_spacing id="idiomaPerfil">Idioma</h5>
+    <div class="grid-container colapsado" >
+        <div id=line-spacing class="grid-item span-fill">
+            <a  href="/my/index.php?lang=qu"  role="menuitem" tabindex="-1" lang="de" onclick="myFunctionReload('qu')">  QU / <img src="http://localhost/gengar/flags/quechua.png" style="
+                width: 10%;">
+                                                                                </a>
+                                                                                <a href="/my/index.php?lang=en"  role="menuitem" tabindex="-1" lang="en" onclick="myFunctionReload('en')">
+                                                                                    EN / <img src="http://localhost/gengar/flags/usa.png" style="
+                width: 10%;">
+                                                                                </a>
+                                                                                 
+                                                                                <a href="/my/index.php?lang=es"  role="menuitem" tabindex="-1" lang="es" onclick="myFunctionReload('es')">
+                                                                                    ES / <img src="http://localhost/gengar/flags/spain.png" style="
+                width: 10%;">
+                                                                                </a>
+                                                                                <a href="/my/index.php?lang=pt"  role="menuitem" tabindex="-1" lang="pt" onclick="myFunctionReload('pt')">
+                                                                                    PT / <img src="http://localhost/gengar/flags/portugal.png" style="
+                width: 10%;">
+                                                                                </a>
+        </div>
+        
+    </div>
+</div>
+
+
+      <hr>
+
+      <div class="category" onclick="descolapsar(this);">
+        <h5 data-locale=text_config id="textconfigPerfil">Configuraciones de Texto</h5>
+        <div class="grid-container colapsado">
+          <div id=font-family class="grid-item span-fill stay-active">
+            <div class=grid-content>
+            <p data-locale=fonts_dyslexia_friendly></p>
+              <div class=fonts-container>
+                <p style="--font-family:Arial" class="selected" onclick="ArialAll()">Arial</p>
+
+                        <p style="--font-family:Calibri" class="" onclick="CalibriAll()">Calibri</p>
+
+                        <p style="--font-family:CenturyGothic" onclick="CenturyGothicAll()">CenturyGothic</p>
+
+                        <p style="--font-family:Comic Sans MS" onclick="ComicSansAll()" >ComicSans</p>
+
+                        <p style="--font-family:Courier" onclick="CourierAll()">Courier</p>
+
+                        <p style="--font-family:Helvetica" onclick="HelveticaAll()">Helvetica</p>
+
+                        <p style="--font-family:Open Sans" onclick="OpenSansAll()">OpenSans</p>
+
+                        
+                        <p style="--font-family:Tahoma" onclick="TahomaAll()">Tahoma</p>
+
+                        <p style="--font-family:Verdana" onclick="VerdanaAll()">Verdana</p>
+              </div>
+                
+          </div> <!--grid-content-->
+              <div class=status></div>
+      </div><!--font family-->
+
+      <script>
+        function agrandarTexto() 
+        {
+           // alert(localStorage.getItem('perfilzoom'));
+            const xl = document.querySelector('html');
+
+            if (localStorage.getItem('perfilzoom') == null) 
+            {
+                localStorage.setItem('perfilzoom','0'); 
+            }
+          
+            if (localStorage.getItem('perfilzoom')=='0')
+            {
+                xl.style.zoom = "120%";
+                localStorage.setItem('perfilzoom','1');
+            }
+            else
+            {
+                if (localStorage.getItem('perfilzoom')=='1')
+                {
+                    xl.style.zoom = "130%";
+                    localStorage.setItem('perfilzoom','2');
+                }
+                else
+                {
+                    if(localStorage.getItem('perfilzoom')=='2')
+                    {
+                        xl.style.zoom = "150%";
+                        localStorage.setItem('perfilzoom','3');
+                    }
+                    else
+                    {
+                        xl.style.zoom = "100%";
+                        localStorage.setItem('perfilzoom','0');
+//juan raymundo vega traductor quechua
+                    }
+
+                }
+
+            }
+
+            
+            let ele = document.getElementById('bigger-textLV');
+            if (localStorage.getItem('perfilzoom')==0){
+                ele.innerHTML = "";
+            }
+            else
+            {
+                ele.innerHTML = " NV:"+localStorage.getItem('perfilzoom');
+            }
+        }
+      </script>
+
+
+<script>
+    function cargaAgrandarTexto() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+
+        if (localStorage.getItem('perfilzoom') == null) 
+        {
+            localStorage.setItem('perfilzoom','0'); 
+        }
+      
+        if (localStorage.getItem('perfilzoom')=='1')
+        {
+            xl.style.zoom = "120%";
+        }
+        else
+        {
+            if (localStorage.getItem('perfilzoom')=='2')
+            {
+                xl.style.zoom = "130%";
+            }
+            else
+            {
+                if(localStorage.getItem('perfilzoom')=='3')
+                {
+                    xl.style.zoom = "150%";
+                }
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('bigger-textLV');
+        if (localStorage.getItem('perfilzoom')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilzoom');
+        }
+    }
+  </script>
+
+
+<script>    
+    function entreLineas() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+
+        if (localStorage.getItem('perfilln') == null) 
+        {
+            localStorage.setItem('perfilln','0'); 
+        }
+      
+        if (localStorage.getItem('perfilln')=='0')
+        {
+            xl.style.lineHeight = "2";
+            localStorage.setItem('perfilln','1');
+        }
+        else
+        {
+            if (localStorage.getItem('perfilln')=='1')
+            {
+                xl.style.lineHeight = "2.5";
+                localStorage.setItem('perfilln','2');
+            }
+            else
+            {
+                if(localStorage.getItem('perfilln')=='2')
+                {
+                    xl.style.lineHeight = "3";
+                    localStorage.setItem('perfilln','3');
+                }
+                else
+                {
+                    xl.style.lineHeight = "";
+                    localStorage.setItem('perfilln','0');
+
+                }
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('entrelineas-textLV');
+        if (localStorage.getItem('perfilln')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilln');
+        }
+    }
+
+</script>
+
+
+<script>    
+    function cargaEntreLineas() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+
+        if (localStorage.getItem('perfilln') == null) 
+        {
+            localStorage.setItem('perfilln','0'); 
+        }
+      
+        if (localStorage.getItem('perfilln')=='1')
+        {
+            xl.style.lineHeight = "2";
+        }
+        else
+        {
+            if (localStorage.getItem('perfilln')=='2')
+            {
+                xl.style.lineHeight = "2.5";
+            }
+            else
+            {
+                if(localStorage.getItem('perfilln')=='3')
+                {
+                    xl.style.lineHeight = "3";
+                }
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('entrelineas-textLV');
+        if (localStorage.getItem('perfilln')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilln');
+        }
+    }
+
+</script>
+
+<script>
+    function entrePalabras() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+
+        if (localStorage.getItem('perfilword') == null) 
+        {
+            localStorage.setItem('perfilword','0'); 
+        }
+      
+        if (localStorage.getItem('perfilword')=='0')
+        {
+            xl.style.wordSpacing = "0.75em";
+            localStorage.setItem('perfilword','1');
+        }
+        else
+        {
+            if (localStorage.getItem('perfilword')=='1')
+            {
+                xl.style.wordSpacing = "1em";
+                localStorage.setItem('perfilword','2');
+            }
+            else
+            {
+                if(localStorage.getItem('perfilword')=='2')
+                {
+                    xl.style.wordSpacing = "1.25em";
+                    localStorage.setItem('perfilword','3');
+                }
+                else
+                {
+                    xl.style.wordSpacing = "";
+                    localStorage.setItem('perfilword','0');
+
+                }
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('entrepalabras-textLV');
+        if (localStorage.getItem('perfilword')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilword');
+        }
+    }
+  </script>
+
+
+<script>
+    function cargaEntrePalabras() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+
+        if (localStorage.getItem('perfilword') == null) 
+        {
+            localStorage.setItem('perfilword','0'); 
+        }
+      
+        if (localStorage.getItem('perfilword')=='1')
+        {
+            xl.style.wordSpacing = "0.75em";
+        }
+        else
+        {
+            if (localStorage.getItem('perfilword')=='2')
+            {
+                xl.style.wordSpacing = "1em";
+            }
+            else
+            {
+                if(localStorage.getItem('perfilword')=='3')
+                {
+                    xl.style.wordSpacing = "1.25em";
+                }
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('entrepalabras-textLV');
+        if (localStorage.getItem('perfilword')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilword');
+        }
+    }
+  </script>
+
+
+<script>
+    function entreLetras() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+
+        if (localStorage.getItem('perfilletra') == null) 
+        {
+            localStorage.setItem('perfilletra','0'); 
+        }
+      
+        if (localStorage.getItem('perfilletra')=='0')
+        {
+            xl.style.letterSpacing = "0.25em";
+            localStorage.setItem('perfilletra','1');
+        }
+        else
+        {
+            if (localStorage.getItem('perfilletra')=='1')
+            {
+                xl.style.letterSpacing = "0.25em";
+                localStorage.setItem('perfilletra','2');
+            }
+            else
+            {
+                if(localStorage.getItem('perfilletra')=='2')
+                {
+                    xl.style.letterSpacing = "0.5em";
+                    localStorage.setItem('perfilletra','3');
+                }
+                else
+                {
+                    xl.style.letterSpacing = "";
+                    localStorage.setItem('perfilletra','0');
+
+                }
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('entreletras-textLV');
+        if (localStorage.getItem('perfilletra')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilletra');
+        }
+    }
+  </script>
+
+
+<script>
+    function cargaEntreLetras() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+
+        if (localStorage.getItem('perfilletra') == null) 
+        {
+            localStorage.setItem('perfilletra','0'); 
+        }
+      
+        if (localStorage.getItem('perfilletra')=='1')
+        {
+            xl.style.letterSpacing = "0.25em";
+        }
+        else
+        {
+            if (localStorage.getItem('perfilletra')=='2')
+            {
+                xl.style.letterSpacing = "0.25em";
+            }
+            else
+            {
+                if(localStorage.getItem('perfilletra')=='3')
+                {
+                    xl.style.letterSpacing = "0.5em";
+                }
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('entreletras-textLV');
+        if (localStorage.getItem('perfilletra')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilletra');
+        }
+    }
+  </script>
+
+<script>
+
+    function fuenteTono(tono)
+    {
+        localStorage.setItem('perfilcolorfuente',tono);
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        xl.style.color =tono;
+        zl.style.color =tono;
+        
+
+
+
+
+    }
+
+    function fuenteAmarilla()
+    {
+        localStorage.setItem('perfilcolorfuente','amarilla');
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        //xl.style.color ='yellow';
+        //zl.style.color ='yellow';
+        xl.classList.add("fuenteAmarilla");
+        zl.classList.add("fuenteAmarilla");
+
+        xl.classList.remove("fuenteAzul");
+        zl.classList.remove("fuenteAzul");
+
+        xl.classList.remove("fuenteBlanca");
+        zl.classList.remove("fuenteBlanca");
+
+        xl.classList.remove("fuenteNaranja");
+        zl.classList.remove("fuenteNaranja");
+
+        xl.classList.remove("fuenteNegra");
+        zl.classList.remove("fuenteNegra");
+
+        xl.classList.remove("fuenteRoja");
+        zl.classList.remove("fuenteRoja");
+
+        xl.classList.remove("fuenteVerde");
+        zl.classList.remove("fuenteVerde");
+
+        xl.classList.remove("fuenteVioleta");
+        zl.classList.remove("fuenteVioleta");
+
+
+
+
+    }
+    
+    function fuenteAzul()
+    {
+        localStorage.setItem('perfilcolorfuente','azul');
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+    
+
+        //xl.style.color ='blue';
+        //zl.style.color ='blue';
+
+        xl.classList.add("fuenteAzul");
+        zl.classList.add("fuenteAzul");
+
+        xl.classList.remove("fuenteAmarilla");
+        zl.classList.remove("fuenteAmarilla");
+
+        xl.classList.remove("fuenteBlanca");
+        zl.classList.remove("fuenteBlanca");
+
+        xl.classList.remove("fuenteNaranja");
+        zl.classList.remove("fuenteNaranja");
+
+        xl.classList.remove("fuenteNegra");
+        zl.classList.remove("fuenteNegra");
+
+        xl.classList.remove("fuenteRoja");
+        zl.classList.remove("fuenteRoja");
+
+        xl.classList.remove("fuenteVerde");
+        zl.classList.remove("fuenteVerde");
+
+        xl.classList.remove("fuenteVioleta");
+        zl.classList.remove("fuenteVioleta");
+
+    }
+
+    function fuenteBlanca()
+    {
+        localStorage.setItem('perfilcolorfuente','blanca');
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        //xl.style.color ='white';
+        //zl.style.color ='white';
+        xl.classList.add("fuenteBlanca");
+        zl.classList.add("fuenteBlanca");
+
+        xl.classList.remove("fuenteAzul");
+        zl.classList.remove("fuenteAzul");
+
+        xl.classList.remove("fuenteAmarilla");
+        zl.classList.remove("fuenteAmarilla");
+
+        xl.classList.remove("fuenteNaranja");
+        zl.classList.remove("fuenteNaranja");
+
+        xl.classList.remove("fuenteNegra");
+        zl.classList.remove("fuenteNegra");
+
+        xl.classList.remove("fuenteRoja");
+        zl.classList.remove("fuenteRoja");
+
+        xl.classList.remove("fuenteVerde");
+        zl.classList.remove("fuenteVerde");
+
+        xl.classList.remove("fuenteVioleta");
+        zl.classList.remove("fuenteVioleta");
+    }
+
+    function fuenteCancelaColor(){
+        localStorage.setItem('perfilcolorfuente','sincolor');
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+        xl.style.color = "";
+        zl.style.color = "";
+
+        xl.classList.remove("fuenteAmarilla");
+        zl.classList.remove("fuenteAmarilla");
+
+        xl.classList.remove("fuenteAzul");
+        zl.classList.remove("fuenteAzul");
+
+        xl.classList.remove("fuenteBlanca");
+        zl.classList.remove("fuenteBlanca");
+
+        xl.classList.remove("fuenteNaranja");
+        zl.classList.remove("fuenteNaranja");
+
+        xl.classList.remove("fuenteNegra");
+        zl.classList.remove("fuenteNegra");
+
+        xl.classList.remove("fuenteRoja");
+        zl.classList.remove("fuenteRoja");
+
+        xl.classList.remove("fuenteVerde");
+        zl.classList.remove("fuenteVerde");
+
+        xl.classList.remove("fuenteVioleta");
+        zl.classList.remove("fuenteVioleta");
+    }
+
+    function fuenteNaranja()
+    {
+        localStorage.setItem('perfilcolorfuente','naranja');
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        xl.classList.add("fuenteNaranja");
+        zl.classList.add("fuenteNaranja");
+
+        xl.classList.remove("fuenteAzul");
+        zl.classList.remove("fuenteAzul");
+
+        xl.classList.remove("fuenteBlanca");
+        zl.classList.remove("fuenteBlanca");
+
+        xl.classList.remove("fuenteAmarilla");
+        zl.classList.remove("fuenteAmarilla");
+
+        xl.classList.remove("fuenteNegra");
+        zl.classList.remove("fuenteNegra");
+
+        xl.classList.remove("fuenteRoja");
+        zl.classList.remove("fuenteRoja");
+
+        xl.classList.remove("fuenteVerde");
+        zl.classList.remove("fuenteVerde");
+
+        xl.classList.remove("fuenteVioleta");
+        zl.classList.remove("fuenteVioleta");
+
+    }
+
+    function fuenteNegra()
+    {
+        localStorage.setItem('perfilcolorfuente','negra');
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+        xl.color = colorc;
+        zl.color = colorc;
+
+        xl.classList.add("fuenteNegra");
+        zl.classList.add("fuenteNegra");
+
+        xl.classList.remove("fuenteAzul");
+        zl.classList.remove("fuenteAzul");
+
+        xl.classList.remove("fuenteBlanca");
+        zl.classList.remove("fuenteBlanca");
+
+        xl.classList.remove("fuenteNaranja");
+        zl.classList.remove("fuenteNaranja");
+
+        xl.classList.remove("fuenteAmarilla");
+        zl.classList.remove("fuenteAmarilla");
+
+        xl.classList.remove("fuenteRoja");
+        zl.classList.remove("fuenteRoja");
+
+        xl.classList.remove("fuenteVerde");
+        zl.classList.remove("fuenteVerde");
+
+        xl.classList.remove("fuenteVioleta");
+        zl.classList.remove("fuenteVioleta");
+    }
+
+    function fuenteRoja()
+    {
+        localStorage.setItem('perfilcolorfuente','roja');
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        xl.classList.add("fuenteRoja");
+        zl.classList.add("fuenteRoja");
+
+        xl.classList.remove("fuenteAzul");
+        zl.classList.remove("fuenteAzul");
+
+        xl.classList.remove("fuenteBlanca");
+        zl.classList.remove("fuenteBlanca");
+
+        xl.classList.remove("fuenteNaranja");
+        zl.classList.remove("fuenteNaranja");
+
+        xl.classList.remove("fuenteNegra");
+        zl.classList.remove("fuenteNegra");
+
+        xl.classList.remove("fuenteAmarilla");
+        zl.classList.remove("fuenteAmarilla");
+
+        xl.classList.remove("fuenteVerde");
+        zl.classList.remove("fuenteVerde");
+
+        xl.classList.remove("fuenteVioleta");
+        zl.classList.remove("fuenteVioleta");
+
+    }
+
+    function fuenteVerde()
+    {
+        localStorage.setItem('perfilcolorfuente','verde');
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        xl.classList.add("fuenteVioleta");
+        zl.classList.add("fuenteVioleta");
+
+        xl.classList.remove("fuenteAzul");
+        zl.classList.remove("fuenteAzul");
+
+        xl.classList.remove("fuenteBlanca");
+        zl.classList.remove("fuenteBlanca");
+
+        xl.classList.remove("fuenteNaranja");
+        zl.classList.remove("fuenteNaranja");
+
+        xl.classList.remove("fuenteNegra");
+        zl.classList.remove("fuenteNegra");
+
+        xl.classList.remove("fuenteRoja");
+        zl.classList.remove("fuenteRoja");
+
+        xl.classList.remove("fuenteVerde");
+        zl.classList.remove("fuenteVerde");
+
+        xl.classList.remove("fuenteAmarilla");
+        zl.classList.remove("fuenteAmarilla");
+        
+
+    }
+
+    function fuenteVioleta()
+    {
+        localStorage.setItem('perfilcolorfuente','violeta');
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        xl.classList.add("fuenteVioleta");
+        zl.classList.add("fuenteVioleta");
+
+        xl.classList.remove("fuenteAzul");
+        zl.classList.remove("fuenteAzul");
+
+        xl.classList.remove("fuenteBlanca");
+        zl.classList.remove("fuenteBlanca");
+
+        xl.classList.remove("fuenteNaranja");
+        zl.classList.remove("fuenteNaranja");
+
+        xl.classList.remove("fuenteNegra");
+        zl.classList.remove("fuenteNegra");
+
+        xl.classList.remove("fuenteRoja");
+        zl.classList.remove("fuenteRoja");
+
+        xl.classList.remove("fuenteVerde");
+        zl.classList.remove("fuenteVerde");
+
+        xl.classList.remove("fuenteAmarilla");
+        zl.classList.remove("fuenteAmarilla");
+    }
+
+    function alinearTexto() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        if (localStorage.getItem('perfilaligntext') == null) 
+        {
+            localStorage.setItem('perfilaligntext','0'); 
+        }
+      
+        if (localStorage.getItem('perfilaligntext')=='0')
+        {
+            xl.classList.add("izquierdita");
+
+            zl.classList.add("izquierdita");
+            localStorage.setItem('perfilaligntext','1');
+        }
+        else
+        {
+            if (localStorage.getItem('perfilaligntext')=='1')
+            {
+                xl.classList.add("centradito");
+                xl.classList.remove("izquierdita");
+
+                zl.classList.add("centradito");
+                zl.classList.remove("izquierdita");
+
+                localStorage.setItem('perfilaligntext','2');
+            }
+            else
+            {
+                if(localStorage.getItem('perfilaligntext')=='2')
+                {
+                    xl.classList.add("derechita");
+                    xl.classList.remove("centradito");
+
+                    zl.classList.add("derechita");
+                    zl.classList.remove("centradito");
+
+                    localStorage.setItem('perfilaligntext','3');
+                }
+                else
+                {
+                    if (localStorage.getItem('perfilaligntext')=='3')
+                    {
+                        xl.classList.add("justificadita");
+                        xl.classList.remove("derechita");
+
+                        zl.classList.add("justificadita");
+                        zl.classList.remove("derechita");
+                        localStorage.setItem('perfilaligntext','4');
+                    }
+                    else
+                    {
+                        xl.classList.remove("justificadita");
+
+                        zl.classList.remove("justificadita");
+
+                        localStorage.setItem('perfilaligntext','0');
+                    }
+
+                }
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('align-textLV');
+        if (localStorage.getItem('perfilaligntext')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilaligntext');
+        }
+    }
+  </script>
+
+
+<script>
+    function cargaFuenteColor()
+    {
+        fuenteTono(localStorage.getItem('perfilcolorfuente'));
+
+        if (localStorage.getItem('perfilcolorfuente')=='amarilla')
+        {
+            fuenteAmarilla();
+        }
+
+        if (localStorage.getItem('perfilcolorfuente')=='azul')
+        {
+            fuenteAzul();
+        }
+
+        if (localStorage.getItem('perfilcolorfuente')=='blanca')
+        {
+            fuenteBlanca();
+        }
+      
+        if (localStorage.getItem('perfilcolorfuente')=='naranja')
+        {
+            fuenteNaranja();
+        }
+
+        if (localStorage.getItem('perfilcolorfuente')=='negra')
+        {
+            fuenteNaranja();
+        }
+
+        if (localStorage.getItem('perfilcolorfuente')=='roja')
+        {
+            fuenteRoja();
+        }
+
+        if (localStorage.getItem('perfilcolorfuente')=='verde')
+        {
+            fuenteVerde();
+        }
+
+        if (localStorage.getItem('perfilcolorfuente')=='violeta')
+        {
+            fuenteVerde();
+        }
+
+
+
+
+    }
+    
+    function cargaAlinearTexto() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        if (localStorage.getItem('perfilaligntext') == null) 
+        {
+            localStorage.setItem('perfilaligntext','0'); 
+        }
+      
+        if (localStorage.getItem('perfilaligntext')=='1')
+        {
+            xl.classList.add("izquierdita");
+
+            zl.classList.add("izquierdita");
+        }
+        else
+        {
+            if (localStorage.getItem('perfilaligntext')=='2')
+            {
+                xl.classList.add("centradito");
+
+                zl.classList.add("centradito");
+
+            }
+            else
+            {
+                if(localStorage.getItem('perfilaligntext')=='3')
+                {
+                    xl.classList.add("derechita");
+    
+                    zl.classList.add("derechita");
+    
+                }
+                else
+                {
+                    if (localStorage.getItem('perfilaligntext')=='4')
+                    {
+                        xl.classList.add("justificadita");
+
+                        zl.classList.add("justificadita");
+                    }
+
+                }
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('align-textLV');
+        if (localStorage.getItem('perfilaligntext')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilaligntext');
+        }
+    }
+  </script>
+
+
+
+  <script>
+    function alinearContraste() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        if (localStorage.getItem('perfilcontra') == null) 
+        {
+            localStorage.setItem('perfilcontra','0'); 
+        }
+      
+        if (localStorage.getItem('perfilcontra')=='0')
+        {
+            xl.classList.add("contrasteOscuro");
+
+            zl.classList.add("contrasteOscuro");
+            localStorage.setItem('perfilcontra','1');
+        }
+        else
+        {
+            if (localStorage.getItem('perfilcontra')=='1')
+            {
+                xl.classList.add("contrasteLuz");
+                xl.classList.remove("contrasteOscuro");
+
+                zl.classList.add("contrasteLuz");
+                zl.classList.remove("contrasteOscuro");
+
+                localStorage.setItem('perfilcontra','2');
+            }
+            else
+            {
+                if(localStorage.getItem('perfilcontra')=='2')
+                {
+                    xl.classList.add("colorInvertido");
+                    xl.classList.remove("contrasteLuz");
+
+                    zl.classList.add("colorInvertido");
+                    zl.classList.remove("contrasteLuz");
+
+                    localStorage.setItem('perfilcontra','3');
+                }
+                else
+                {
+                        xl.classList.remove("colorInvertido");
+
+                        zl.classList.remove("colorInvertido");
+
+                        localStorage.setItem('perfilcontra','0');
+
+                }
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('contra-textLV');
+        if (localStorage.getItem('perfilcontra')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilcontra');
+        }
+    }
+  </script>
+
+
+<script>
+    function cargaAlinearContraste() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        if (localStorage.getItem('perfilcontra') == null) 
+        {
+            localStorage.setItem('perfilcontra','0'); 
+        }
+      
+        if (localStorage.getItem('perfilcontra')=='1')
+        {
+            xl.classList.add("contrasteOscuro");
+
+            zl.classList.add("contrasteOscuro");
+        }
+        else
+        {
+            if (localStorage.getItem('perfilcontra')=='2')
+            {
+                xl.classList.add("contrasteLuz");
+
+                zl.classList.add("contrasteLuz");
+
+            }
+            else
+            {
+                if(localStorage.getItem('perfilcontra')=='3')
+                {
+                    xl.classList.add("colorInvertido");
+
+                    zl.classList.add("colorInvertido");
+
+                }
+
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('contra-textLV');
+        if (localStorage.getItem('perfilcontra')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilcontra');
+        }
+    }
+  </script>
+
+
+<script>
+    function alinearSaturacion() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        if (localStorage.getItem('perfilsatura') == null) 
+        {
+            localStorage.setItem('perfilsatura','0'); 
+        }
+      
+        if (localStorage.getItem('perfilsatura')=='0')
+        {
+            xl.classList.add("desaturar");
+
+            zl.classList.add("desaturar");
+            localStorage.setItem('perfilsatura','1');
+        }
+        else
+        {
+            if (localStorage.getItem('perfilsatura')=='1')
+            {
+                xl.classList.add("bajaSaturacion");
+                xl.classList.remove("desaturar");
+
+                zl.classList.add("bajaSaturacion");
+                zl.classList.remove("desaturar");
+
+                localStorage.setItem('perfilsatura','2');
+            }
+            else
+            {
+                if(localStorage.getItem('perfilsatura')=='2')
+                {
+                    xl.classList.add("altaSaturacion");
+                    xl.classList.remove("bajaSaturacion");
+
+                    zl.classList.add("altaSaturacion");
+                    zl.classList.remove("bajaSaturacion");
+
+                    localStorage.setItem('perfilsatura','3');
+                }
+                else
+                {
+                        xl.classList.remove("altaSaturacion");
+
+                        zl.classList.remove("altaSaturacion");
+
+                        localStorage.setItem('perfilsatura','0');
+
+                }
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('satura-textLV');
+        if (localStorage.getItem('perfilsatura')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilsatura');
+        }
+    }
+  </script>
+
+
+<script>
+    function cargaAlinearSaturacion() 
+    {
+       // alert(localStorage.getItem('perfilzoom'));
+        const xl = document.querySelector('html');
+        const zl = document.querySelector('body');
+
+        if (localStorage.getItem('perfilsatura') == null) 
+        {
+            localStorage.setItem('perfilsatura','0'); 
+        }
+      
+        if (localStorage.getItem('perfilsatura')=='1')
+        {
+            xl.classList.add("desaturar");
+
+            zl.classList.add("desaturar");
+        }
+        else
+        {
+            if (localStorage.getItem('perfilsatura')=='2')
+            {
+                xl.classList.add("bajaSaturacion");
+        
+                zl.classList.add("bajaSaturacion");
+        
+            }
+            else
+            {
+                if(localStorage.getItem('perfilsatura')=='3')
+                {
+                    xl.classList.add("altaSaturacion");
+
+                    zl.classList.add("altaSaturacion");
+
+                }
+              
+
+            }
+
+        }
+
+        
+        let ele = document.getElementById('satura-textLV');
+        if (localStorage.getItem('perfilsatura')==0){
+            ele.innerHTML = "";
+        }
+        else
+        {
+            ele.innerHTML = " NV:"+localStorage.getItem('perfilsatura');
+        }
+    }
+  </script>
+
+      <div id=bigger-text class=grid-item  >
+          <div class=grid-content onclick="agrandarTexto()">
+              <div class="grid-icon bigger-text"></div>
+              <p data-locale=bigger_text id="biggertextPerfil">Texto Más Grande <div id="bigger-textLV"></div></p>
+              <div class=position-counter></div>
+          </div>
+          <div class=status></div>
+      </div>
+<script>
+    function cargaMetadatos()
+    {
+        // Check
+        if (localStorage.getItem('ckaudiovoicePerfil')=='1')
+        {
+            document.getElementById("ckaudiovoicePerfil").checked = true;
+            audiodescriptionAll();
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("ckaudiovoicePerfil").checked = false;
+        }
+
+        ///
+
+        // Check
+        if (localStorage.getItem('ckaudiotextPerfil')=='1')
+        {
+            document.getElementById("ckaudiotextPerfil").checked = true;
+            audiodestextAll();
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("ckaudiotextPerfil").checked = false;
+        }
+
+        ///
+
+        // Check
+        if (localStorage.getItem('cksubtitlePerfil')=='1')
+        {
+            document.getElementById("cksubtitlePerfil").checked = true;
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("cksubtitlePerfil").checked = false;
+        }
+
+        ///
+
+        // Check
+        if (localStorage.getItem('cktranscriptPerfil')=='1')
+        {
+            document.getElementById("cktranscriptPerfil").checked = true;
+            transcriptAll();
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("cktranscriptPerfil").checked = false;
+        }
+
+        ///
+
+        // Check
+        if (localStorage.getItem('ckfilesonorePerfil')=='1')
+        {
+            document.getElementById("ckfilesonorePerfil").checked = true;
+            ficherosonoroAll();
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("ckfilesonorePerfil").checked = false;
+        }
+
+        ///
+
+        // Check
+        if (localStorage.getItem('ckreprevisualPerfil')=='1')
+        {
+            document.getElementById("ckreprevisualPerfil").checked = true;
+            reprevisualAll();
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("ckreprevisualPerfil").checked = false;
+        }
+
+        ///
+
+        // Check
+        if (localStorage.getItem('cksoundsubPerfil')=='1')
+        {
+            document.getElementById("cksoundsubPerfil").checked = true;
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("cksoundsubPerfil").checked = false;
+        }
+
+        ///
+
+         // Check
+         if (localStorage.getItem('ckaudiotransPerfil')=='1')
+        {
+            document.getElementById("ckaudiotransPerfil").checked = true;
+            transcriptAll();
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("ckaudiotransPerfil").checked = false;
+        }
+
+        ///
+
+         // Check
+         if (localStorage.getItem('cklangsignPerfil')=='1')
+        {
+            document.getElementById("cklangsignPerfil").checked = true;
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("cklangsignPerfil").checked = false;
+        }
+
+        ///
+
+         // Check
+         if (localStorage.getItem('ckebookPerfil')=='1')
+        {
+            document.getElementById("ckebookPerfil").checked = true;
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("ckebookPerfil").checked = false;
+        }
+
+        ///
+
+         // Check
+         if (localStorage.getItem('ckhtmlPerfil')=='1')
+        {
+            document.getElementById("ckhtmlPerfil").checked = true;
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("ckhtmlPerfil").checked = false;
+        }
+
+        ///
+
+         // Check
+         if (localStorage.getItem('ckpdfPerfil')=='1')
+        {
+            document.getElementById("ckpdfPerfil").checked = true;
+        }
+        else
+        {
+        // Uncheck
+            document.getElementById("ckpdfPerfil").checked = false;
+        }
+
+        ///
+
+    }
+
+
+</script>
+      <script>
+        
+   
+
+          document.addEventListener('DOMContentLoaded', function() 
+          {
+            // alert('carga completa');// your code here
+          // Retrieve
+            cargarNombrePerfil();
+            cargaAgrandarTexto();
+            cargaAlinearContraste();
+            cargaAlinearSaturacion();
+            cargaAlinearTexto();
+            cargaEntreLetras();
+            cargaEntreLineas();
+            cargaEntrePalabras();
+            cargaFuenteColor();
+            cargarAgrandarCursor();
+            cargarColorSombra();
+            cargaDestacarEnlaces();
+            cargaOcultarImagenes();
+            cargaMetadatos();
+
+
+              var el = document.querySelectorAll('*');
+  
+              for(var i=0;i<el.length;i++)
+              {
+                  
+
+                  if (localStorage.getItem("perfilidioma")=="en"){
+                    document.getElementById("tituloperfil").innerHTML = "Portable Profile";
+                    document.getElementById("abmperfil").innerHTML = "Name Profile:";
+                     document.getElementById("crearPerfil").innerHTML = "Create";
+                   //  document.getElementById("editarPerfil").innerHTML = "Edit";
+                   //  document.getElementById("eliminarPerfil").innerHTML = "Delete";
+                     document.getElementById("cargarPerfil").innerHTML = "Load";
+                     document.getElementById("exportarPerfil").innerHTML = "Export";
+                   //  document.getElementById("cerrarSesion").innerHTML = "Log Out";
+                     document.getElementById("idiomaPerfil").innerHTML = "Language";
+                     document.getElementById("textconfigPerfil").innerHTML = "Text Configurations";
+                     document.getElementById("biggertextPerfil").innerHTML = "Bigger Text";
+                     document.getElementById("boldtextPerfil").innerHTML = "Bold Text";
+                     document.getElementById("italictextPerfil").innerHTML = "Italic Text";
+                     document.getElementById("aligntextPerfil").innerHTML = "Align Text";
+                     document.getElementById("adjusttextcolorPerfil").innerHTML = "Adjust text color";
+                     document.getElementById("textspacingPerfil").innerHTML = "Text Spacing";
+                     document.getElementById("betweenlinesPerfil").innerHTML = "Between Lines";
+                     document.getElementById("betweenwordsPerfil").innerHTML = "Between Words";
+                     document.getElementById("betweenlettersPerfil").innerHTML = "Between Letters";
+                     document.getElementById("screenshaderPerfil").innerHTML = "Screen Color Filter";
+                     document.getElementById("adjusttintcolorPerfil").innerHTML = "Adjust the color of the Filter";
+                     document.getElementById("colorschemesPerfil").innerHTML = "Color Schemes";
+                     document.getElementById("contrastPerfil").innerHTML = "Contrast";
+                     document.getElementById("saturaPerfil").innerHTML = "Saturation";
+                     document.getElementById("metadataPerfil").innerHTML = "Metadata";
+                     document.getElementById("alternativevisualPerfil").innerHTML = "Alternatives to the Visual:";
+                     document.getElementById("audiovoicePerfil").innerHTML = "Audio description by voice";
+                     document.getElementById("audiotextPerfil").innerHTML = "Audio description by text";
+                     document.getElementById("subtitlePerfil").innerHTML = "Subtitle";
+                     document.getElementById("transcriptPerfil").innerHTML = "Transcript";
+                     document.getElementById("descriptimgsPerfil").innerHTML = "Description of Images";
+                     document.getElementById("alternativetextPerfil").innerHTML = "Text Alternatives:";
+                     document.getElementById("filesonorePerfil").innerHTML = "Sound File";
+                     document.getElementById("reprevisualPerfil").innerHTML = "Visual Representation";
+                     document.getElementById("alternativesoundPerfil").innerHTML = "Sound Alternatives";
+                     document.getElementById("soundsubPerfil").innerHTML = "Subtitles";
+                     document.getElementById("audiotransPerfil").innerHTML = "Transcript";
+                     document.getElementById("langsignPerfil").innerHTML = "Sign Language";
+                     document.getElementById("alternativeformatPerfil").innerHTML = "Alternative Format:";
+                     document.getElementById("extraPerfil").innerHTML = "Additional";
+                     document.getElementById("biggercursorPerfil").innerHTML = "Enlarge Cursor";
+                     document.getElementById("hightlinkPerfil").innerHTML = "Hight Links";
+                     document.getElementById("hideimagesPerfil").innerHTML = "Hide Images";
+
+                  }
+                  if (localStorage.getItem("perfilidioma")=="es"){
+                    document.getElementById("tituloperfil").innerHTML = "Perfil Portable";
+                    document.getElementById("abmperfil").innerHTML = "Nombre Perfil:";
+                    document.getElementById("crearPerfil").innerHTML = "Crear";
+                    //document.getElementById("editarPerfil").innerHTML = "Editar";
+                  //  document.getElementById("eliminarPerfil").innerHTML = "Eliminar";
+                    document.getElementById("cargarPerfil").innerHTML = "Importar";
+                    document.getElementById("exportarPerfil").innerHTML = "Exportar";
+                  //  document.getElementById("cerrarSesion").innerHTML = "Cerrar Sesión";
+                    document.getElementById("idiomaPerfil").innerHTML = "Idioma";
+                    document.getElementById("textconfigPerfil").innerHTML = "Configuraciones de Texto";
+                    document.getElementById("biggertextPerfil").innerHTML = "Texto Más Grande";
+                    document.getElementById("boldtextPerfil").innerHTML = "Texto en Negrita";
+                    document.getElementById("italictextPerfil").innerHTML = "Texto en Cursiva";
+                    document.getElementById("aligntextPerfil").innerHTML = "Alinear Texto";
+                    document.getElementById("adjusttextcolorPerfil").innerHTML = "Ajustar el color del texto";
+                    document.getElementById("textspacingPerfil").innerHTML = "Espaciado de Texto";
+                    document.getElementById("betweenlinesPerfil").innerHTML = "Entre Líneas";
+                    document.getElementById("betweenwordsPerfil").innerHTML = "Entre Palabras";
+                    document.getElementById("betweenlettersPerfil").innerHTML = "Entre Letras";
+                    document.getElementById("screenshaderPerfil").innerHTML = "Filtro Pantalla Color";
+                    document.getElementById("adjusttintcolorPerfil").innerHTML = "Ajuste el color del Filtro";
+                    document.getElementById("colorschemesPerfil").innerHTML = "Esquemas de Color";
+                    document.getElementById("contrastPerfil").innerHTML = "Contraste";
+                    document.getElementById("saturaPerfil").innerHTML = "Saturación";
+                    document.getElementById("metadataPerfil").innerHTML = "Metadatos";
+                    document.getElementById("alternativevisualPerfil").innerHTML = "Alternativas a lo Visual:";
+                    document.getElementById("audiovoicePerfil").innerHTML = "Audiodescripción por voz";
+                    document.getElementById("audiotextPerfil").innerHTML = "Audiodescripción por texto";
+                    document.getElementById("subtitlePerfil").innerHTML = "Subtitulado";
+                    document.getElementById("transcriptPerfil").innerHTML = "Transcripción";
+                    document.getElementById("descriptimgsPerfil").innerHTML = "Descripción de Imagénes";
+                    document.getElementById("alternativetextPerfil").innerHTML = "Alternativas al Texto:";
+                    document.getElementById("filesonorePerfil").innerHTML = "Fichero Sonoro";
+                    document.getElementById("reprevisualPerfil").innerHTML = "Representación Visual";
+                    document.getElementById("alternativesoundPerfil").innerHTML = "Alternativas al Sonido";
+                    document.getElementById("soundsubPerfil").innerHTML = "Subtitulado";
+                    document.getElementById("audiotransPerfil").innerHTML = "Transcripción";
+                    document.getElementById("langsignPerfil").innerHTML = "Lengua de Señas";
+                    document.getElementById("alternativeformatPerfil").innerHTML = "Alternativas al Formato:";
+                    document.getElementById("extraPerfil").innerHTML = "Adicionales";
+                    document.getElementById("biggercursorPerfil").innerHTML = "Agrandar Cursor";
+                    document.getElementById("hightlinkPerfil").innerHTML = "Resaltar Links";
+                    document.getElementById("hideimagesPerfil").innerHTML = "Esconder Imágenes";
+
+
+
+                  }
+                  if (localStorage.getItem("perfilidioma")=="pt"){
+                    document.getElementById("tituloperfil").innerHTML = "Perfil Portátil";
+                    document.getElementById("abmperfil").innerHTML = "Perfil Nome:";
+                     document.getElementById("crearPerfil").innerHTML = "Criar";
+                  //   document.getElementById("editarPerfil").innerHTML = "Editar";
+                  //   document.getElementById("eliminarPerfil").innerHTML = "Eliminar";
+                     document.getElementById("cargarPerfil").innerHTML = "Carregar";
+                     document.getElementById("exportarPerfil").innerHTML = "Exportar";
+                   //  document.getElementById("cerrarSesion").innerHTML = "Sair";
+                     document.getElementById("idiomaPerfil").innerHTML = "Idioma";
+                     document.getElementById("textconfigPerfil").innerHTML = "Configurações de Texto";
+                     document.getElementById("biggertextPerfil").innerHTML = "Texto maior";
+                     document.getElementById("boldtextPerfil").innerHTML = "Texto em Negrito";
+                     document.getElementById("italictextPerfil").innerHTML = "Texto em itálico";
+                     document.getElementById("aligntextPerfil").innerHTML = "Alinhar Texto";
+                     document.getElementById("adjusttextcolorPerfil").innerHTML = "Ajustar a cor do texto";
+                     document.getElementById("textspacingPerfil").innerHTML = "Espaçamento do texto";
+                     document.getElementById("betweenlinesPerfil").innerHTML = "Entre Linhas";
+                     document.getElementById("betweenwordsPerfil").innerHTML = "Entre Palavras";
+                     document.getElementById("betweenlettersPerfil").innerHTML = "Entre Letras";
+                     document.getElementById("screenshaderPerfil").innerHTML = "Filtro de cores da tela";
+                     document.getElementById("adjusttintcolorPerfil").innerHTML = "Ajustar a cor do Filtro";
+                     document.getElementById("colorschemesPerfil").innerHTML = "Esquemas de cores";
+                     document.getElementById("contrastPerfil").innerHTML = "Contraste";
+                     document.getElementById("saturationPerfil").innerHTML = "Saturação";
+                     document.getElementById("metadataPerfil").innerHTML = "Metadados";
+                     document.getElementById("alternativevisualPerfil").innerHTML = "Alternativas ao Visual:";
+                     document.getElementById("audiovoicePerfil").innerHTML = "Descrição de áudio por voz";
+                     document.getElementById("audiotextPerfil").innerHTML = "Descrição de áudio por texto";
+                     document.getElementById("subtitlePerfil").innerHTML = "Legenda";
+                     document.getElementById("transcriptPerfil").innerHTML = "Transcrição";
+                     document.getElementById("descriptimgsPerfil").innerHTML = "Descrição das Imagens";
+                     document.getElementById("alternativetextPerfil").innerHTML = "Alternativas de texto:";
+                     document.getElementById("filesonorePerfil").innerHTML = "Arquivo de Som";
+                     document.getElementById("reprevisualPerfil").innerHTML = "Representação Visual";
+                     document.getElementById("alternativesoundPerfil").innerHTML = "Alternativas de Som";
+                     document.getElementById("soundsubPerfil").innerHTML = "Legendas";
+                     document.getElementById("audiotransPerfil").innerHTML = "Transcrição";
+                     document.getElementById("langsignPerfil").innerHTML = "Língua de Sinais";
+                     document.getElementById("alternativeformatPerfil").innerHTML = "Formato alternativo:";
+                     document.getElementById("extraPerfil").innerHTML = "Adicional";
+                     document.getElementById("biggercursorPerfil").innerHTML = "Ampliar Cursor";
+                     document.getElementById("hightlinkPerfil").innerHTML = "Links mais altos";
+                     document.getElementById("hideimagesPerfil").innerHTML = "Ocultar imagens";
+                  }
+                  if (localStorage.getItem("perfilidioma")=="qu"){
+                    document.getElementById("tituloperfil").innerHTML = "Apana kananqa";
+                    document.getElementById("abmperfil").innerHTML = "Kananqap sutin:";
+                    document.getElementById("crearPerfil").innerHTML = "Rikarichi";
+                  //  document.getElementById("editarPerfil").innerHTML = "Editar";
+                  //  document.getElementById("eliminarPerfil").innerHTML = "Eliminar";
+                    document.getElementById("cargarPerfil").innerHTML = "Apachimuy";
+                    document.getElementById("exportarPerfil").innerHTML = "Apachikuy";
+                  //  document.getElementById("cerrarSesion").innerHTML = "Cerrar Sesión";
+                    document.getElementById("idiomaPerfil").innerHTML = "Rimay";
+                    document.getElementById("textconfigPerfil").innerHTML = "Killkap allichaynin";
+                    document.getElementById("biggertextPerfil").innerHTML = "Hatunkaska killka";
+                    document.getElementById("boldtextPerfil").innerHTML = "Yanapi killka";
+                    document.getElementById("italictextPerfil").innerHTML = "Makip killka";
+                    document.getElementById("aligntextPerfil").innerHTML = "Killka allichay";
+                    document.getElementById("adjusttextcolorPerfil").innerHTML = "Killkap llinpinkunata allichay";
+                    document.getElementById("textspacingPerfil").innerHTML = "Killkap rikinin";
+                    document.getElementById("betweenlinesPerfil").innerHTML = "Kamillun pura";
+                    document.getElementById("betweenwordsPerfil").innerHTML = "Rimay pura";
+                    document.getElementById("betweenlettersPerfil").innerHTML = "Killkakuna pura";
+                    document.getElementById("screenshaderPerfil").innerHTML = "Qispip rikarimunin llushi";
+                    document.getElementById("adjusttintcolorPerfil").innerHTML = "Rikarimuqpaq llinpin akllay";
+                    document.getElementById("colorschemesPerfil").innerHTML = "Kaninkunap llushinkuna";
+                    document.getElementById("contrastPerfil").innerHTML = "Tinkuchiy";
+                    document.getElementById("saturaPerfil").innerHTML = "Huntasqa";
+                    document.getElementById("metadataPerfil").innerHTML = "Akllasqa kaqninkuna";
+                    document.getElementById("alternativevisualPerfil").innerHTML = "Hawanap akllayninkuna:";
+                    document.getElementById("audiovoicePerfil").innerHTML = "Uyarina rimay riqsichiqnin";
+                    document.getElementById("audiotextPerfil").innerHTML = "Uyarina killka riqsichiy";
+                    document.getElementById("subtitlePerfil").innerHTML = "Umamatinin";
+                    document.getElementById("transcriptPerfil").innerHTML = "Rimasqata killkay";
+                    document.getElementById("descriptimgsPerfil").innerHTML = "Llinpikunata riqsichiy";
+                    document.getElementById("alternativetextPerfil").innerHTML = "Killkap aklayninkuna:";
+                    document.getElementById("filesonorePerfil").innerHTML = "Uyarina churana";
+                    document.getElementById("reprevisualPerfil").innerHTML = "Hawanata rikachina";
+                    document.getElementById("alternativesoundPerfil").innerHTML = "Uyarip akllayninkuna";
+                    document.getElementById("soundsubPerfil").innerHTML = "Subtitulado";
+                    document.getElementById("audiotransPerfil").innerHTML = "Rimasqata killkay";
+                    document.getElementById("langsignPerfil").innerHTML = "Hawachinakuna rimay";
+                    document.getElementById("alternativeformatPerfil").innerHTML = "Hawanap akrayninkuna:";
+                    document.getElementById("extraPerfil").innerHTML = "Yapaykuna";
+                    document.getElementById("biggercursorPerfil").innerHTML = "Ukuchata hatunyachiq";
+                    document.getElementById("hightlinkPerfil").innerHTML = "Linkkunata hawachiq";
+                    document.getElementById("hideimagesPerfil").innerHTML = "Llinpikunata pakay";
+
+
+
+                  }
+              
+                }
+          }, false);
+      </script>
+
+
+<script>
+    function agrandarCursor()
+    {
+        var el = document.querySelectorAll('*');
+  
+              for(var i=0;i<el.length;i++)
+              {
+                if (el[i].classList.contains('cursorGrande'))
+                {
+                    el[i].classList.remove('cursorGrande');
+                    localStorage.setItem('perfilcursor','0');
+                }
+                else
+                {
+                    localStorage.setItem('perfilcursor','1');
+                    el[i].classList.add('cursorGrande');
+                }
+              }
+    }
+</script>
+
+
+<script>
+    function cargarAgrandarCursor()
+    {
+        if (localStorage.getItem('perfilcursor')=='1')
+        {
+            var el = document.querySelectorAll('*');
+  
+              for(var i=0;i<el.length;i++)
+              {
+                    el[i].classList.add('cursorGrande');                
+              }
+        }
+    }
+</script>
+
+
+<script>
+    function colorFondo(colorcito)
+    {
+            var el = document.querySelectorAll('*');
+  
+              for(var i=0;i<el.length;i++)
+              {
+                    if (colorcito=="sincolor")
+                    {
+                        el[i].style.backgroundColor = "";
+
+                    }
+                    else
+                    {
+                        el[i].style.backgroundColor = colorcito;
+                    }                
+              }
+        
+    }
+</script>
+
+<script>
+    function colorSombra(colorcito)
+    {
+        var el = document.querySelector('html');
+        //borro todas las clases y despues agrego la elegida
+        el.classList.remove('sombraroja');
+            el.classList.remove('sombranegro');
+            el.classList.remove('sombranaranja');
+            el.classList.remove('sombraamarillo');
+            el.classList.remove('sombraverde');
+            el.classList.remove('sombraazul');
+            el.classList.remove('sombravioleta');
+        //fin borrar clases
+
+        if (colorcito=="negro")
+        {
+            el.classList.add('sombranegro');
+            localStorage.setItem("perfilsombra", colorcito);    
+        }
+
+        if (colorcito=="rojo")
+        {
+            el.classList.add('sombraroja');
+            localStorage.setItem("perfilsombra", colorcito);    
+        }
+        
+        if (colorcito=="naranja")
+        {
+            el.classList.add('sombranaranja');
+            localStorage.setItem("perfilsombra", colorcito);    
+        }
+
+        if (colorcito=="amarillo")
+        {
+            el.classList.add('sombraamarillo');
+            localStorage.setItem("perfilsombra", colorcito);    
+        }
+
+        if (colorcito=="verde")
+        {
+            el.classList.add('sombraverde');
+            localStorage.setItem("perfilsombra", colorcito);    
+        }
+
+        if (colorcito=="azul")
+        {
+            el.classList.add('sombraazul');
+            localStorage.setItem("perfilsombra", colorcito);    
+        }
+
+        if (colorcito=="violeta")
+        {
+            el.classList.add('sombravioleta');
+            localStorage.setItem("perfilsombra", colorcito);    
+        }
+
+        if (colorcito=="sincolor")
+        {
+            el.classList.remove('sombraroja');
+            el.classList.remove('sombranegro');
+            el.classList.remove('sombranaranja');
+            el.classList.remove('sombraamarillo');
+            el.classList.remove('sombraverde');
+            el.classList.remove('sombraazul');
+            el.classList.remove('sombravioleta');
+            
+            localStorage.removeItem("perfilsombra");    
+        }
+
+    }
+
+</script>
+
+
+
+<script>
+    function cargarColorSombra()
+    {
+        var el = document.querySelector('html');
+        var colorcito = localStorage.getItem('perfilsombra');
+        if (colorcito=="negro")
+        {
+            el.classList.add('sombranegro');
+        }
+
+        if (colorcito=="rojo")
+        {
+            el.classList.add('sombraroja');
+        }
+        
+        if (colorcito=="naranja")
+        {
+            el.classList.add('sombranaranja');
+        }
+
+        if (colorcito=="amarillo")
+        {
+            el.classList.add('sombraamarillo');
+        }
+
+        if (colorcito=="verde")
+        {
+            el.classList.add('sombraverde');
+        }
+
+        if (colorcito=="azul")
+        {
+            el.classList.add('sombraazul');
+        }
+
+        if (colorcito=="violeta")
+        {
+            el.classList.add('sombravioleta');
+        }
+
+        if (colorcito=="sincolor")
+        {
+            //nada
+    
+        }
+
+    }
+
+</script>
+
+
+
+<script>
+    function ocultarImagenes()
+          {
+              var el = document.querySelectorAll('img');
+  
+              for(var i=0;i<el.length;i++)
+              {
+                var ruta = el[i].getAttribute('src'); 
+                if (ruta == "")
+                {
+                    el[i].setAttribute("src", el[i].getAttribute("perfilruta"));
+                    localStorage.setItem('perfilnoimagen','0');
+
+
+                }
+                else
+                {
+                    //intento guardar los atributos con el tamaño d fuente
+                    att = document.createAttribute("perfilruta");
+                      // Set a value of the class attribute
+                    att.value = ruta;
+
+                      // Add the class attribute to the first h1;
+                    el[i].setAttributeNode(att);
+                    el[i].setAttribute("src", '');
+                    localStorage.setItem('perfilnoimagen','1');
+
+
+                }
+      
+                
+      
+                  
+                  
+              }
+  
+          }
+
+    function destacarEnlaces()
+    {
+        var el = document.querySelectorAll('a');
+        for (var i=0;i<el.length;i++)
+        {
+            if (el[i].classList.contains('resaltadoa')) 
+            {
+                el[i].classList.remove('resaltadoa');
+                localStorage.setItem('perfilenlace','0');
+
+            }
+            else
+            {
+                el[i].classList.add('resaltadoa');
+                localStorage.setItem('perfilenlace','1');
+            }
+        }
+    }
+</script>
+
+<script>
+    function cargaOcultarImagenes()
+          {
+              var el = document.querySelectorAll('img');
+              var visual = localStorage.getItem('perfilnoimagen');
+
+              if (visual == '1')
+              {
+                for(var i=0;i<el.length;i++)
+                {
+                
+                    //intento guardar los atributos con el tamaño d fuente
+                    att = document.createAttribute("perfilruta");
+                      // Set a value of the class attribute
+                    att.value = ruta;
+
+                      // Add the class attribute to the first h1;
+                    el[i].setAttributeNode(att);
+                    el[i].setAttribute("src", '');
+                  
+                  
+                }
+
+              }
+  
+              
+  
+          }
+
+    function cargaDestacarEnlaces()
+    {
+        var el = document.querySelectorAll('a');
+        var deslink = localStorage.getItem('perfilenlace');
+        if (deslink=='1')
+        {
+            for (var i=0;i<el.length;i++)
+            {
+                el[i].classList.add('resaltadoa');
+            }
+
+        }
+        
+    }
+</script>
+
+<script>
+    function transcriptAll()
+          {
+              var el = document.querySelectorAll('transcript');
+  
+              for(var i=0;i<el.length;i++)
+              {
+      
+                  if (el[i].style.display == "none")
+                  {
+                    el[i].style.display = "";
+                  }
+                  else
+                  {
+                    el[i].style.display = "none";
+
+                  }
+              }
+  
+          }
+
+
+          function audiodescriptionAll()
+          {
+              var el = document.querySelectorAll('.audiodescription');
+  
+              for(var i=0;i<el.length;i++)
+              {
+      
+                  if (el[i].style.display == "none")
+                  {
+                    el[i].style.display = "";
+                  }
+                  else
+                  {
+                    el[i].style.display = "none";
+
+                  }
+              }
+  
+          }
+
+
+          function audiodestextAll()
+          {
+              var el = document.querySelectorAll('.audiotext');
+  
+              for(var i=0;i<el.length;i++)
+              {
+      
+                  if (el[i].style.display == "none")
+                  {
+                    el[i].style.display = "";
+                  }
+                  else
+                  {
+                    el[i].style.display = "none";
+
+                  }
+              }
+  
+          }
+
+
+          function ficherosonoroAll()
+          {
+              var el = document.querySelectorAll('.soundfile');
+  
+              for(var i=0;i<el.length;i++)
+              {
+      
+                  if (el[i].style.display == "none")
+                  {
+                    el[i].style.display = "";
+                  }
+                  else
+                  {
+                    el[i].style.display = "none";
+
+                  }
+              }
+  
+          }
+
+          
+          function reprevisualAll()
+          {
+              var el = document.querySelectorAll('.visualtool');
+  
+              for(var i=0;i<el.length;i++)
+              {
+      
+                  if (el[i].style.display == "none")
+                  {
+                    el[i].style.display = "";
+                  }
+                  else
+                  {
+                    el[i].style.display = "none";
+
+                  }
+              }
+  
+          }
+</script>
+
+      <script>
+          function BoldAll()
+          {
+              var el = document.querySelectorAll('*');
+  
+              for(var i=0;i<el.length;i++)
+              {
+      
+                  if (el[i].style.fontWeight == "900")
+                  {
+                      let fontsi = el[i].getAttribute("perfilbold");
+                      //alert(fontsi);
+                      el[i].style.fontWeight = fontsi;
+                      //		console.log(fontsi);
+                      localStorage.removeItem("perfilbold");
+                      //localStorage.clear();
+                      localStorage.setItem("perfilbold", "0");
+                  }
+                  else
+                  {		
+                      var style = window.getComputedStyle(el[i], null).getPropertyValue('font-size');
+                      var fontSize = parseFloat(style); 
+      
+                      //intento guardar los atributos con el tamaño d fuente
+                      att = document.createAttribute("perfilbold");
+                      // Set a value of the class attribute
+                      att.value = fontSize;
+
+                      // Add the class attribute to the first h1;
+                      el[i].setAttributeNode(att);
+                      el[i].style.fontWeight = "900";
+                      localStorage.setItem("perfilbold", "1");
+                  }
+              }
+  
+          }
+
+          function ArialAll()
+          {
+                        
+              var el = document.querySelectorAll('*');
+              for(var i=0;i<el.length;i++)
+              {
+                  if (el[i].style.fontFamily == "Arial")
+                  {
+                      el[i].style.fontFamily = "";
+                  }
+                  else
+                  {
+                      el[i].style.fontFamily = "Arial";
+                  }
+              }
+            
+          }
+
+
+          function CalibriAll()
+          {
+              var el = document.querySelectorAll('*');
+              for(var i=0;i<el.length;i++)
+              {
+                  if (el[i].style.fontFamily == "Calibri")
+                  {
+                      el[i].style.fontFamily = "";
+                  }
+                  else
+                  {
+                      el[i].style.fontFamily = "Calibri";
+                  }
+              }
+          }
+
+          function CenturyGothicAll()
+          {
+              var el = document.querySelectorAll('*');
+              for(var i=0;i<el.length;i++)
+              {
+                  if (el[i].style.fontFamily == "CenturyGothic")
+                  {
+                      el[i].style.fontFamily = "";
+                  }
+                  else
+                  {
+                      el[i].style.fontFamily = "CenturyGothic";
+                  }
+              }
+  
+          }
+
+          function ComicSansAll()
+          {
+              var el = document.querySelectorAll('*');
+              for(var i=0;i<el.length;i++)
+              {
+                  if (el[i].style.fontFamily == "ComicSans")
+                  {
+                      el[i].style.fontFamily = "";
+                  }
+                  else
+                  {
+                      el[i].style.fontFamily = "ComicSans";
+                  }
+              }
+          }
+
+          function CourierAll()
+          {
+              var el = document.querySelectorAll('*');
+              for(var i=0;i<el.length;i++)
+              {
+                  if (el[i].style.fontFamily == "Courier")
+                  {
+                      el[i].style.fontFamily = "";
+                  }
+                  else
+                  {
+                      el[i].style.fontFamily = "Courier";
+                  }
+              }
+  
+          }
+
+
+          function HelveticaAll()
+          {
+              var el = document.querySelectorAll('*');
+              for(var i=0;i<el.length;i++)
+              {
+                  if (el[i].style.fontFamily == "Helvetica")
+                  {
+                      el[i].style.fontFamily = "";
+                  }
+                  else
+                  {
+                      el[i].style.fontFamily = "Helvetica";
+                  }
+              }
+  
+          }
+
+
+          function OpenSansAll()
+          {
+              var el = document.querySelectorAll('*');
+              for(var i=0;i<el.length;i++)
+              {
+                  if (el[i].style.fontFamily == "OpenSans")
+                  {
+                      el[i].style.fontFamily = "";
+                  }
+                  else
+                  {
+                      el[i].style.fontFamily = "OpenSans";
+                  }
+              }
+  
+          }
+
+
+          function TahomaAll()
+          {
+              var el = document.querySelectorAll('*');
+              for(var i=0;i<el.length;i++)
+              {
+                  if (el[i].style.fontFamily == "Tahoma")
+                  {
+                      el[i].style.fontFamily = "";
+                  }
+                  else
+                  {
+                      el[i].style.fontFamily = "Tahoma";
+                  }
+              }
+  
+          }
+
+          function VerdanaAll()
+          {
+              var el = document.querySelectorAll('*');
+              for(var i=0;i<el.length;i++)
+              {
+                  if (el[i].style.fontFamily == "Tahoma")
+                  {
+                      el[i].style.fontFamily = "";
+                  }
+                  else
+                  {
+                      el[i].style.fontFamily = "Tahoma";
+                  }
+                 }
+  
+          }
+      </script>
+
+      <div id=bold-text class=grid-item onclick="BoldAll()">
+          <div class=grid-content>
+              <div class="grid-icon bold-text"></div>
+              <p data-locale=bold_text id="boldtextPerfil">Texto en Negrita</p>
+              <div class=position-counter></div>
+          </div>
+          <div class=status></div>
+      </div>
+
+
+      <script>
+          function ItalicAll()
+          {
+              var el = document.querySelectorAll('*');
+              for(var i=0;i<el.length;i++)
+              {
+                  if (el[i].style.fontStyle == "italic")
+                  {
+                      el[i].style.fontStyle = "normal";
+                  }
+                  else
+                  {
+                      el[i].style.fontStyle = "italic";
+                  }
+              }
+  
+          }	
+      </script>
+
+  <div id=italic-text class=grid-item onclick="ItalicAll()">
+      <div class=grid-content>
+          <div class="grid-icon italic-text"></div>
+          <p data-locale=italic_text id="italictextPerfil">Texto en Cursiva</p>
+          <div class=position-counter></div>
+      </div>
+      <div class=status></div>
+  </div>
+
+
+  <div id=align-text class=grid-item>
+      <div class=grid-content onclick="alinearTexto()">
+          <div class="grid-icon align-text"></div>
+          <p>
+              <span class=title data-locale=align_text id="aligntextPerfil">Alinear Texto <div id="align-textLV"></div></span>
+              <span class=selected-option></span>
+          </p>
+          <div class=position-counter></div>
+      </div>
+
+      <div class=status></div>
+  </div>
+
+  <div id=font-color class="grid-item span-2 stay-active">
+      <div class=grid-content>
+          <p data-locale=adjust_text_color id="adjusttextcolorPerfil">Ajustar el color del Texto</p>
+              <div class=colors-container>
+                  <div class="grid-colors font-color">
+                    <div data-value="#ffffff" style="--bg-color:#ffffff" onclick="fuenteTono('#ffffff');"></div>
+                    <div data-value="#f5f5f5" style="--bg-color:#f5f5f5" onclick="fuenteTono('#f5f5f5');"></div>
+                    <div data-value="#FEFFEF" style="--bg-color:#FEFFEF" onclick="fuenteTono('#FEFFEF');"></div>
+                    <div data-value="##FFF8DC" style="--bg-color:#FFF8DC" onclick="fuenteTono('#FFF8DC');"></div>
+                    <div data-value="#FEE4C3" style="--bg-color:#FEE4C3" onclick="fuenteTono('#FEE4C3');"></div>
+                    <div data-value="#FFFF00" style="--bg-color:#FFFF00" onclick="fuenteTono('#FFFF00');"></div>
+                    
+                    
+                  <br>
+                  <div data-value="#99FB98" style="--bg-color:#99FB98" onclick="fuenteTono('#99FB98');"></div>
+                  <div data-value="#00FF01" style="--bg-color:#00FF01" onclick="fuenteTono('#00FF01');"></div>
+                  <div data-value="#018810" style="--bg-color:#018810" onclick="fuenteTono('#018810');"></div>
+                  <div data-value="#00FFFF" style="--bg-color:#00FFFF" onclick="fuenteTono('#00FFFF');"></div>
+                  <div data-value="#4465FE" style="--bg-color:#4465FE" onclick="fuenteTono('#4465FE');"></div>
+                  <div data-value="#0001FE" style="--bg-color:#0001FE" onclick="fuenteTono('#0001FE');"></div>
+                  <br> 
+
+
+                  <div data-value="#FF00FE" style="--bg-color:#FF00FE" onclick="fuenteTono('#FF00FE');"></div>
+                  <div data-value="#DD1288" style="--bg-color:#DD1288" onclick="fuenteTono('#DD1288');"></div>
+                  <div data-value="#FE0000" style="--bg-color:#FE0000" onclick="fuenteTono('#FE0000');"></div>
+                  <div data-value="#EE0000" style="--bg-color:#EE0000" onclick="fuenteTono('#EE0000');"></div>
+                  <div data-value="#444444" style="--bg-color:#444444" onclick="fuenteTono('#444444');"></div>
+                  <div data-value="#000000" style="--bg-color:#000000" onclick="fuenteTono('#000000');"></div>
+
+                  <!--<div data-value="#000000" style="--bg-color:#000000" onclick="fuenteNegra();"></div>
+                    <div data-value="#e02b20" style="--bg-color:#e02b20" onclick="fuenteRoja();"></div>
+                  
+                    <div data-value="#e09900" style="--bg-color:#e09900" onclick="fuenteNaranja();"></div>
+                  
+                    <div data-value="#eef002" style="--bg-color:#eef002" onclick="fuenteAmarilla();"></div>
+                  
+                    <div data-value="#7cda24" style="--bg-color:#7cda24" onclick="fuenteVerde();"></div>
+                  
+                    <div data-value="#0671c3" style="--bg-color:#0671c3" onclick="fuenteAzul();"></div>
+                  
+                    <div data-value="#8300e9" style="--bg-color:#8300e9" onclick="fuenteVioleta();"></div>
+                  -->
+                  </div>
+                  <div class=cancel onclick="fuenteCancelaColor();"></div>
+              </div>
+      </div>
+      <div class=status></div>
+  </div>
+  </div>
+</div><!--category-->
+
+  <div class="category" onclick="descolapsar(this);">
+      <h5 data-locale=text_spacing id="textspacingPerfil">Espaciado de Texto</h5>
+      <div class="grid-container colapsado">
+          <div id=line-spacing class=grid-item>
+              <div class=grid-content onclick="entreLineas()">
+                  <div class="grid-icon line-spacing"></div>
+                  <p data-locale=between_lines id="betweenlinesPerfil">Entre Líneas <div id="entrelineas-textLV"></div></p>
+                  <div class=position-counter></div>
+              </div>
+              <div class=status></div>
+          </div>
+          <div id=word-spacing class=grid-item>
+              <div class=grid-content onclick="entrePalabras()">
+                  <div class="grid-icon word-spacing"></div>
+                  <p data-locale=between_words id="betweenwordsPerfil">Entre Palabras <div id="entrepalabras-textLV"></div></p>
+                  <div class=position-counter></div>
+              </div>
+              <div class=status></div>
+          </div>
+          <div id=letter-spacing class=grid-item>
+              <div class=grid-content onclick="entreLetras()">
+                  <div class="grid-icon letter-spacing"></div>
+                  <p data-locale=between_letters id="betweenlettersPerfil">Entre Letras <div id="entreletras-textLV"></div></p>
+                  <div class=position-counter></div>
+              </div>
+              <div class=status></div>
+          </div>
+      </div>
+  </div>
+
+  <div class="category" onclick="descolapsar(this);">
+      <div class=title-container>
+          <h5 data-locale=screen_fondo id="screenfondoPerfil">Color de Fondo</h5>
+      </div>
+      <div class="grid-container colapsado">
+          <div id=screen-tint-color class="grid-item span-2 stay-active">
+              <div class=grid-content>
+                  <p data-locale=adjust_tint_color id="adjusttintcolorPerfil">Ajustar el Color de Fondo</p>
+                  
+                  <div class="colors-container">
+                    <div class="grid-colors screen-tint-color"> 
+                        
+                        <div data-value="#ffffff" style="--bg-color:#ffffff" onclick="colorFondo('#ffffff');"></div>
+                    <div data-value="#f5f5f5" style="--bg-color:#f5f5f5" onclick="colorFondo('#f5f5f5');"></div>
+                    <div data-value="#FEFFEF" style="--bg-color:#FEFFEF" onclick="colorFondo('#FEFFEF');"></div>
+                    <div data-value="##FFF8DC" style="--bg-color:#FFF8DC" onclick="colorFondo('#FFF8DC');"></div>
+                    <div data-value="#FEE4C3" style="--bg-color:#FEE4C3" onclick="colorFondo('#FEE4C3');"></div>
+                    <div data-value="#FFFF00" style="--bg-color:#FFFF00" onclick="colorFondo('#FFFF00');"></div>
+                    
+                    
+                  <br>
+                  <div data-value="#99FB98" style="--bg-color:#99FB98" onclick="colorFondo('#99FB98');"></div>
+                  <div data-value="#00FF01" style="--bg-color:#00FF01" onclick="colorFondo('#00FF01');"></div>
+                  <div data-value="#018810" style="--bg-color:#018810" onclick="colorFondo('#018810');"></div>
+                  <div data-value="#00FFFF" style="--bg-color:#00FFFF" onclick="colorFondo('#00FFFF');"></div>
+                  <div data-value="#4465FE" style="--bg-color:#4465FE" onclick="colorFondo('#4465FE');"></div>
+                  <div data-value="#0001FE" style="--bg-color:#0001FE" onclick="colorFondo('#0001FE');"></div>
+                  <br> 
+
+
+                  <div data-value="#FF00FE" style="--bg-color:#FF00FE" onclick="colorFondo('#FF00FE');"></div>
+                  <div data-value="#DD1288" style="--bg-color:#DD1288" onclick="colorFondo('#DD1288');"></div>
+                  <div data-value="#FE0000" style="--bg-color:#FE0000" onclick="colorFondo('#FE0000');"></div>
+                  <div data-value="#EE0000" style="--bg-color:#EE0000" onclick="colorFondo('#EE0000');"></div>
+                  <div data-value="#444444" style="--bg-color:#444444" onclick="colorFondo('#444444');"></div>
+                  <div data-value="#000000" style="--bg-color:#000000" onclick="colorFondo('#000000');"></div>
+                        <!--
+                      <div data-value="#000000" style="--bg-color:#000000" onclick="colorFondo('#000000');"></div>
+                    
+                      <div data-value="#e02b20" style="--bg-color:#e02b20" onclick="colorFondo('#e02b20');"></div>
+                    
+                      <div data-value="#e09900" style="--bg-color:#e09900" onclick="colorFondo('#e09900');"></div>
+                    
+                      <div data-value="#eef002" style="--bg-color:#eef002" onclick="colorFondo('#eef002');"></div>
+                    
+                      <div data-value="#7cda24" style="--bg-color:#7cda24" onclick="colorFondo('#7cda24');"></div>
+                    
+                      <div data-value="#0671c3" style="--bg-color:#0671c3" onclick="colorFondo('#0671c3');"></div>
+                    
+                      <div data-value="#8300e9" style="--bg-color:#8300e9" onclick="colorFondo('#8300e9');"></div>
+                      -->
+                    </div>
+                    <div class="cancel" onclick="colorFondo('sincolor');"></div>
+                    </div>
+              </div>
+              <div class=status></div>
+          </div>
+         
+      </div>
+  </div>
+
+
+<div class="category" onclick="descolapsar(this);">
+  <h5 data-locale=color_schemes id="colorschemesPerfil">Esquemas de Color</h5>
+  <div class="grid-container colapsado">
+      <div id=contrast class=grid-item>
+          <div class=grid-content onclick="alinearContraste()">
+              <div class="grid-icon contrast"></div>
+              <p>
+                  <span class=title data-locale=contrast id="contrastPerfil">Contraste</span>
+                  <div id="contra-textLV"></div>
+                  <span class=selected-option></span>
+              </p>
+              <div class=position-counter></div>
+          </div>
+          <div class=status></div>
+      </div>
+
+      <div id=saturation class=grid-item>
+          <div class=grid-content onclick="alinearSaturacion()">
+              <div class="grid-icon saturation"></div>
+              <p>
+                  <span class=title data-locale=saturation id="saturaPerfil">Saturación</span>
+                  <div id="satura-textLV"></div>
+                  <span class=selected-option></span>
+              </p>
+              <div class=position-counter></div>
+          </div>
+          <div class=status></div>
+      </div>
+  </div>
+</div> <!-- category-->
+<style>
+    li{
+        list-style: none;
+    }
+</style>
+<div class="category" onclick="descolapsar(this);">
+    <div class=title-container>
+        <h5 data-locale=extra_accessibility_tools id="metadataPerfil">Contenido Alternativo</h5>
+    </div>
+  <div class="grid-container colapsado">
+    <dl>
+        <dt id="yui_3_17_2_1_1679848159711_109"><p id="alternativevisualPerfil">Alternativas a lo Visual:</p></dt>
+        <dd>
+        <ul>
+        <li><input type="checkbox" id="ckaudiovoicePerfil" onclick="checkAddress(this);audiodescriptionAll();">
+        <label id="audiovoicePerfil">Audiodescripción por voz</label>
+        </li>
+        <li><input type="checkbox" id="ckaudiotextPerfil" onclick="checkAddress(this);audiodestextAll();">
+        <label id="audiotextPerfil">Audiodescripción por texto</label></li>
+    
+        <li><input type="checkbox" id="cksubtitlePerfil" onclick="checkAddress(this)">
+        <label id="subtitlePerfil">Subtitulado</label></li>
+    
+        <li><input type="checkbox" id="cktranscriptPerfil" onclick="checkAddress(this);transcriptAll();">
+        <label id="transcriptPerfil">Transcripción</label></li>
+        <li><input type="checkbox" id="ckdescriptimgsPerfil" onclick="ocultarImagenes()">
+        <label id="descriptimgsPerfil">Descripción de Imagénes</label></li>
+        </ul>
+        </dd>
+        
+        <dt><p id="alternativetextPerfil">Alternativas al Texto:</p></dt>
+        <dd>
+        <ul>
+        <li><input type="checkbox" id="ckfilesonorePerfil" onclick="checkAddress(this);ficherosonoroAll();">
+        <label id="filesonorePerfil">Fichero Sonoro</label></li>
+        <li><input type="checkbox" id="ckreprevisualPerfil" onclick="checkAddress(this);reprevisualAll();">
+        <label id="reprevisualPerfil">Representación Visual</label></li>
+        </ul>
+        </dd>
+    
+        <dt><p id="alternativesoundPerfil">Alternativas al Sonido</p></dt>
+        <dd>
+        <ul>
+        <li><input type="checkbox" id="cksoundsubPerfil" onclick="checkAddress(this)">
+        <label id="soundsubPerfil">Subtitulado</label></li>
+        <li><input type="checkbox" id="ckaudiotransPerfil" onclick="checkAddress(this);transcriptAll();">
+        <label id="audiotransPerfil">Transcripción</label></li>
+        <li><input type="checkbox" id="cklangsignPerfil" onclick="checkAddress(this)">
+        <label id="langsignPerfil">Lengua de Señas</label></li>
+        </ul>
+        </dd>
+    
+    <dt><p id="alternativeformatPerfil">Alternativas al Formato:</p></dt>
+    <dd>
+    <ul>
+        <li><input type="checkbox" id="ckebookPerfil" onclick="checkAddress(this)">
+        <label>eBook</label></li>
+        <li><input type="checkbox" id="ckhtmlPerfil" onclick="checkAddress(this)">
+        <label>HTML</label></li>
+    
+        <li><input type="checkbox" id="ckpdfPerfil" onclick="checkAddress(this)">
+        <label>PDF</label></li>
+        </ul>
+        </dd>
+        </dl>
+    
+</div>
+  
+  </div><!--category-->
+
+
+<div class="category" onclick="descolapsar(this);">
+  <div class="title-container">
+      <h5 data-locale=extra_accessibility_tools id="extraPerfil">Adicionales</h5>
+  </div>
+  
+  
+  <div class="grid-container colapsado">
+      <div id=bigger-cursor class=grid-item>
+          <div class=grid-content onclick="agrandarCursor()">
+              <div class="grid-icon bigger-cursor"></div>
+              <p data-locale=bigger_cursor id="biggercursorPerfil">Agrandar Cursor</p>
+              <div class=position-counter></div>
+          </div>
+          <div class=status></div>
+      </div>
+
+
+      <div id=highlight-links class=grid-item>
+          <div class=grid-content onclick="destacarEnlaces();">
+              <div class="grid-icon highlight-links"></div>
+              <p data-locale=highlight_links id="hightlinkPerfil">Resaltar links</p>
+          </div>
+          <div class=status></div>
+      </div>
+
+      <div id=hide-images class=grid-item>
+          <div class=grid-content onclick="ocultarImagenes();" >
+              <div class="grid-icon hide-images"></div>
+              <p data-locale=hide_images id="hideimagesPerfil">Esconder Imágenes</p>
+          </div>
+          <div class=status></div>
+      </div>      
+      
+
+  </div><!--containter-->
+
+</div><!--category-->
+
+
+</div><!--main-->
+
+</div><!-- menu perfil-->
+</div><!--perfilito-->
+
+
+    <div id="widget-f3a23x80" style="--widget-display:flex;">
+                                                                              <div class="main-icon widget-icon"></div>
+    </div>
+
+    <div class="backgroud-overlay"></div>
+
+    <div id="reader-view">
+      <div class="bg">
+        <h2 class="title"></h2>
+        <pre class="content"></pre>
+      </div>
+      <div class="close-btn"></div>
+    </div>
+    
+<style>
+    .colapsado
+    {
+        display:none;
+    }
+</style>
+
+<script>
+
+    function descolapsar(self)
+    {
+        miniS = self.querySelector(":scope > .grid-container");
+        
+        if (miniS.classList.contains("colapsado"))
+        {
+            miniS.classList.remove("colapsado");
+
+        }
+        else
+        {
+            miniS.classList.add("colapsado");
+
+        }
+
+    }
+    </script>
+    

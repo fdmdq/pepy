@@ -1,0 +1,546 @@
+<!-- 
+ *                      2022 
+ * All Rights Reserved for Oziku Technologies LLC
+ *            https://www.oziku.tech/
+-->
+
+<!doctype html>
+<html lang=en id="myDIV">
+<head>
+<meta charset=UTF-8>
+<title >Perfil Portable</title>
+<link rel=stylesheet href=../css/bootstrap.css>
+<link rel=stylesheet href=../css/fonts.css>
+<link rel=stylesheet href=../css/sidebar.css>
+</head>
+
+<body>
+<div id=main>
+<div id=header>
+<div class=left-div>
+<h5 class=toggle data-locale=extName>Perfil Portable</h5>
+<label class=switch>
+<input id=toggle-ext type=checkbox>
+<div class="slider round"></div>
+</label>
+</div>
+
+<script>
+  function _enviarAlPadre(){
+   //window.parent._ocultarIframe();
+   //window.close;
+   document.getElementById('perfilito').style.display = 'none';
+  }
+  function myFunction() {
+  window.location.reload();
+}
+ </script>
+
+<button id=resetBtn class="btn btn-primary btn-primary-custom" data-locale=reset_all_settings>Reset all settings</button>
+<div id=closeBtn onclick="myFunction()"></div>
+</div>
+<hr>
+
+<div class=category>
+<div class=title-container>
+<h6>ABM Perfil:</h6>
+<a href="https://yacachai.campus.mdp.edu.ar/login/signup.php">Crear</a>
+<a href="https://yacachai.campus.mdp.edu.ar/user/profile.php">Editar</a>
+<a href="#">Eliminar</a>
+<a href="https://yacachai.campus.mdp.edu.ar/user/profile.php">Cargar</a>
+<a href="file:///C:/Users/Clan%20Basualdo/Downloads/data.json">Exportar</a>
+
+<a href="https://yacachai.campus.mdp.edu.ar/login/logout.php">Cerrar Sesion</a>
+</div>
+
+<div class=grid-container>
+</div>
+</div>
+
+<hr>
+
+<div class=category>
+<h5 data-locale=text_config>Text Configurations</h5>
+<div class=grid-container>
+<div id=font-family class="grid-item span-fill stay-active">
+<div class=grid-content>
+<p data-locale=fonts_dyslexia_friendly>Readable Fonts (Dyslexia Friendly)</p>
+<div class=fonts-container></div>
+<div id="font-family" class="grid-item span-fill stay-active selected">
+<div class="grid-content">
+<p data-locale="fonts_dyslexia_friendly">Fuentes legibles (compatibles con dislexia)</p>
+
+<script>
+
+
+
+</script>
+
+
+<div class="fonts-container">
+  <p style="--font-family:Arial" class="selected" onclick="ArialAll()">Arial</p>
+
+  <p style="--font-family:Calibri" class="" onclick="CalibriAll()">Calibri</p>
+
+  <p style="--font-family:CenturyGothic" onclick="CenturyGothicAll()">CenturyGothic</p>
+
+  <p style="--font-family:Comic Sans MS" onclick="ComicSansAll()" >ComicSans</p>
+
+  <p style="--font-family:Courier" onclick="CourierAll()">Courier</p>
+
+  <p style="--font-family:Helvetica" onclick="HelveticaAll()">Helvetica</p>
+
+  <p style="--font-family:Open Sans" onclick="OpenSansAll()">OpenSans</p>
+
+  <p style="--font-family:OpenDyslexic" onclick="OpenDyslexic()">OpenDyslexic</p>
+
+  <p style="--font-family:Tahoma" onclick="TahomaAll()">Tahoma</p>
+
+  <p style="--font-family:Verdana" onclick="VerdanaAll()">Verdana</p>
+</div>
+</div>
+<div class="status"></div>
+</div>
+</div>
+<div class=status></div>
+</div>
+<div id=bigger-text class=grid-item>
+<div class=grid-content>
+<div class="grid-icon bigger-text"></div>
+<p data-locale=bigger_text>Bigger Text</p>
+<div class=position-counter></div>
+</div>
+<div class=status></div>
+</div>
+
+<script>
+function BoldAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontWeight == "900")
+		{
+			el[i].style.fontWeight = "10";
+		}
+		else
+		{
+		el[i].style.fontWeight = "900";
+		}
+    }
+	
+	var el = window.parent.document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontWeight == "900")
+		{
+			el[i].style.fontWeight = "10";
+		}
+		else
+		{
+		el[i].style.fontWeight = "900";
+		}
+    }
+	 
+	
+}
+
+function ArialAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontFamily == "Arial")
+		{
+			el[i].style.fontFamily = "Normal";
+		}
+		else
+		{
+		el[i].style.fontFamily = "Arial";
+		}
+    }
+	
+}
+
+
+function CalibriAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontFamily == "Calibri")
+		{
+			el[i].style.fontFamily = "Normal";
+		}
+		else
+		{
+		el[i].style.fontFamily = "Calibri";
+		}
+    }
+	
+}
+
+function CenturyGothicAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontFamily == "CenturyGothic")
+		{
+			el[i].style.fontFamily = "Normal";
+		}
+		else
+		{
+		el[i].style.fontFamily = "CenturyGothic";
+		}
+    }
+	
+}
+
+function ComicSansAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontFamily == "ComicSans")
+		{
+			el[i].style.fontFamily = "Normal";
+		}
+		else
+		{
+		el[i].style.fontFamily = "ComicSans";
+		}
+    }
+	
+}
+
+function CourierAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontFamily == "Courier")
+		{
+			el[i].style.fontFamily = "Normal";
+		}
+		else
+		{
+		el[i].style.fontFamily = "Courier";
+		}
+    }
+	
+}
+
+
+function HelveticaAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontFamily == "Helvetica")
+		{
+			el[i].style.fontFamily = "Normal";
+		}
+		else
+		{
+		el[i].style.fontFamily = "Helvetica";
+		}
+    }
+	
+}
+
+
+function OpenSansAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontFamily == "OpenSans")
+		{
+			el[i].style.fontFamily = "Normal";
+		}
+		else
+		{
+		el[i].style.fontFamily = "OpenSans";
+		}
+    }
+	
+}
+
+function OpenDyslexicAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontFamily == "OpenDyslexic")
+		{
+			el[i].style.fontFamily = "Normal";
+		}
+		else
+		{
+		el[i].style.fontFamily = "OpenDyslexic";
+		}
+    }
+	
+}
+
+function TahomaAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontFamily == "Tahoma")
+		{
+			el[i].style.fontFamily = "Normal";
+		}
+		else
+		{
+		el[i].style.fontFamily = "Tahoma";
+		}
+    }
+	
+}
+
+function VerdanaAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontFamily == "Tahoma")
+		{
+			el[i].style.fontFamily = "Normal";
+		}
+		else
+		{
+		el[i].style.fontFamily = "Tahoma";
+		}
+    }
+	
+}
+</script>
+<div id=bold-text class=grid-item onclick="BoldAll()">
+<div class=grid-content>
+<div class="grid-icon bold-text"></div>
+<p data-locale=bold_text>Bold Text</p>
+<div class=position-counter></div>
+</div>
+<div class=status></div>
+</div>
+
+
+<script>
+function ItalicAll(){
+	var el = document.querySelectorAll('*');
+	for(var i=0;i<el.length;i++){
+		if (el[i].style.fontStyle == "italic")
+		{
+			el[i].style.fontStyle = "normal";
+		}
+		else
+		{
+		el[i].style.fontStyle = "italic";
+		}
+    }
+	
+}
+</script>
+<div id=italic-text class=grid-item onclick="ItalicAll()">
+<div class=grid-content>
+<div class="grid-icon italic-text"></div>
+<p data-locale=italic_text>Italic Text</p>
+<div class=position-counter></div>
+</div>
+<div class=status></div>
+</div>
+
+
+<div id=align-text class=grid-item>
+<div class=grid-content>
+<div class="grid-icon align-text"></div>
+<p>
+<span class=title data-locale=align_text>Align Text</span>
+<span class=selected-option></span>
+</p>
+<div class=position-counter></div>
+</div>
+<div class=status></div>
+</div>
+<div id=font-color class="grid-item span-2 stay-active">
+<div class=grid-content>
+<p data-locale=adjust_text_color>Adjust Text Color</p>
+<div class=colors-container>
+<div class="grid-colors font-color"> </div>
+<div class=cancel></div>
+</div>
+</div>
+<div class=status></div>
+</div>
+</div>
+</div>
+<div class=category>
+<h5 data-locale=text_spacing>Text Spacing</h5>
+<div class=grid-container>
+<div id=line-spacing class=grid-item>
+<div class=grid-content>
+<div class="grid-icon line-spacing"></div>
+<p data-locale=between_lines>Between Lines</p>
+<div class=position-counter></div>
+</div>
+<div class=status></div>
+</div>
+<div id=word-spacing class=grid-item>
+<div class=grid-content>
+<div class="grid-icon word-spacing"></div>
+<p data-locale=between_words>Between Words</p>
+<div class=position-counter></div>
+</div>
+<div class=status></div>
+</div>
+<div id=letter-spacing class=grid-item>
+<div class=grid-content>
+<div class="grid-icon letter-spacing"></div>
+<p data-locale=between_letters>Between Letters</p>
+<div class=position-counter></div>
+</div>
+<div class=status></div>
+</div>
+</div>
+</div>
+<div class=category>
+<div class=title-container>
+<h5 data-locale=screen_shader>Screen Shader (Eyes Protection):</h5>
+<h5 class=font-weight-normal data-locale=screen_shader_info>Select Tint Color first</h5>
+</div>
+<div class=grid-container>
+<div id=screen-tint-color class="grid-item span-2 stay-active">
+<div class=grid-content>
+<p data-locale=adjust_tint_color>Adjust Tint Color</p>
+<div class=colors-container>
+<div class="grid-colors screen-tint-color"> </div>
+<div class=cancel></div>
+</div>
+</div>
+<div class=status></div>
+</div>
+<div id=screen-tint-brightness class="grid-item stay-active">
+<div class=grid-content>
+<div class="grid-icon screen-tint-brightness"></div>
+<p data-locale=brightness>Brightness</p>
+<div class=range-slider>
+<input type=range min=20 max=90 value=55>
+</div>
+</div>
+<div class=status></div>
+</div>
+</div>
+</div>
+
+<div class=category>
+<div class=title-container>
+<h5 data-locale=reading_ruler>Reading Ruler (ADHD Friendly):</h5>
+<h5 class=font-weight-normal data-locale=reading_mask_info>Select Mask Type first</h5>
+</div>
+<div class=grid-container>
+<div id=mask-mode class=grid-item>
+<div class=grid-content>
+<div class="grid-icon mask-mode"></div>
+<p data-locale=mask_type>Mask Type</p>
+<div class=position-counter></div>
+</div>
+<div class=status></div>
+</div>
+<div id=mask-height class="grid-item stay-active">
+<div class=grid-content>
+<div class="grid-icon mask-height"></div>
+<p data-locale=height>Height</p>
+<div class="range-slider small">
+<input type=range min=25 max=200 value=75>
+</div>
+</div>
+<div class=status></div>
+</div>
+<div id=mask-brightness class="grid-item stay-active">
+<div class=grid-content>
+<div class="grid-icon mask-brightness"></div>
+<p data-locale=brightness>Brightness</p>
+<div class="range-slider small">
+<input type=range min=10 max=50 value=30>
+</div>
+</div>
+<div class=status></div>
+</div>
+<div id=mask-color class="grid-item span-2 stay-active">
+<div class=grid-content>
+<p data-locale=mask_color>Mask Color</p>
+<div class=colors-container>
+<div class="grid-colors mask-color"> </div>
+<div class=cancel></div>
+</div>
+</div>
+<div class=status></div>
+</div>
+</div>
+</div>
+
+<div class=category>
+<h5 data-locale=color_schemes>Color Schemes</h5>
+<div class=grid-container>
+<div id=contrast class=grid-item>
+<div class=grid-content>
+<div class="grid-icon contrast"></div>
+<p>
+<span class=title data-locale=contrast>Contrast</span>
+<span class=selected-option></span>
+</p>
+<div class=position-counter></div>
+</div>
+<div class=status></div>
+</div>
+<div id=saturation class=grid-item>
+<div class=grid-content>
+<div class="grid-icon saturation"></div>
+<p>
+<span class=title data-locale=saturation>Saturation</span>
+<span class=selected-option></span>
+</p>
+<div class=position-counter></div>
+</div>
+<div class=status></div>
+</div>
+</div>
+</div>
+<div class=category>
+<div class=title-container>
+<h5 data-locale=extra_accessibility_tools>Adicionales</h5>
+
+</div>
+<div class=grid-container>
+
+
+
+
+<div id=bigger-cursor class=grid-item>
+<div class=grid-content>
+<div class="grid-icon bigger-cursor"></div>
+<p data-locale=bigger_cursor>Bigger Cursor</p>
+<div class=position-counter></div>
+</div>
+<div class=status></div>
+</div>
+
+
+<div id=highlight-links class=grid-item>
+<div class=grid-content>
+<div class="grid-icon highlight-links"></div>
+<p data-locale=highlight_links>Highlight Links</p>
+</div>
+<div class=status></div>
+</div>
+
+<div id=hide-images class=grid-item>
+<div class=grid-content>
+<div class="grid-icon hide-images"></div>
+<p data-locale=hide_images>Hide Images</p>
+</div>
+<div class=status></div>
+</div>
+
+
+<div id=show-widget class=grid-item>
+<div class=grid-content>
+<div class="grid-icon show-widget"></div>
+<p></p>
+</div>
+<div class=status></div>
+</div>
+
+
+</div>
+</div>
+</div>
+<script src=../js/jquery.js></script>
+<script src=../js/bootstrap.min.js></script>
+<script src=../js/config.js></script>
+<script src=../js/sidebar.js></script>
+
+
+
+</body>
+</html>

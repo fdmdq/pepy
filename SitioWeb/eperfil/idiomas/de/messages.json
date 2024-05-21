@@ -1,0 +1,212 @@
+{
+    "extName": {
+        "message": "Perfil Portable"
+    },
+    "extNameFull": {
+        "message": "Perfil Portable"
+    },
+    "extDescription": {
+        "message": "Perfil Portable"
+    },
+    "setOnOffExtension": {
+        "message": "Stellen Sie den Ein/Aus-Status der Nebenstelle ein"
+    },
+    "logout": {
+        "message": "AUSLOGGEN"
+    },
+    "please_rate": {
+        "message": "Bitte bewerten Sie unsere Erweiterung"
+    },
+    "login_failed": {
+        "message": "Anmeldung fehlgeschlagen: Starten Sie Ihren Browser oder Computer neu, um das Problem zu beheben"
+    },
+    "premium": {
+        "message": "Prämie"
+    },
+    "trial_end_error": {
+        "message": "Um Premium-Funktionen zu nutzen: Bitte melden Sie sich im Kontobereich an"
+    },
+    "align_left": {
+        "message": "Linksbündig"
+    },
+    "align_center": {
+        "message": "Im Zentrum anordnen"
+    },
+    "align_right": {
+        "message": "Rechts ausrichten"
+    },
+    "align_justify": {
+        "message": "Ausrichten"
+    },
+    "show_widget": {
+        "message": "Widget anzeigen"
+    },
+    "hide_widget": {
+        "message": "Widget ausblenden"
+    },
+    "text_config": {
+        "message": "Textkonfigurationen"
+    },
+    "bigger_text": {
+        "message": "Größerer Text"
+    },
+    "bold_text": {
+        "message": "Fetter Text"
+    },
+    "italic_text": {
+        "message": "Kursiver Text"
+    },
+    "align_text": {
+        "message": "Text ausrichten"
+    },
+    "adjust_text_color": {
+        "message": "Textfarbe anpassen"
+    },
+    "fonts_dyslexia_friendly": {
+        "message": "Lesbare Schriftarten (Legasthenie-freundlich)"
+    },
+    "text_spacing": {
+        "message": "Textabstand"
+    },
+    "between_lines": {
+        "message": "Zwischen Zeilen"
+    },
+    "between_words": {
+        "message": "Zwischen Wörtern"
+    },
+    "between_letters": {
+        "message": "Zwischen Buchstaben"
+    },
+    "reading_ruler": {
+        "message": "Leselineal (ADHS-freundlich):"
+    },
+    "mask_type": {
+        "message": "Maskentyp"
+    },
+    "height": {
+        "message": "Höhe"
+    },
+    "brightness": {
+        "message": "Helligkeit"
+    },
+    "screen_shader": {
+        "message": "Bildschirmshader (Augenschutz):"
+    },
+    "adjust_tint_color": {
+        "message": "Passen Sie die Tönungsfarbe an"
+    },
+    "extra_accessibility_tools": {
+        "message": "Zusätzliche Tools für die Barrierefreiheit"
+    },
+    "bigger_cursor": {
+        "message": "Größerer Cursor"
+    },
+    "mute_sounds": {
+        "message": "Töne stummschalten"
+    },
+    "stop_animation": {
+        "message": "Stoppen Sie die Animation"
+    },
+    "colors": {
+        "message": "Farben"
+    },
+    "contrast": {
+        "message": "Kontrast"
+    },
+    "light_contrast": {
+        "message": "Leichter Kontrast"
+    },
+    "dark_contrast": {
+        "message": "Dunkler Kontrast"
+    },
+    "invert_colors": {
+        "message": "Farben umkehren"
+    },
+    "saturation": {
+        "message": "Sättigung"
+    },
+    "low_saturation": {
+        "message": "Niedrige Sättigung"
+    },
+    "high_saturation": {
+        "message": "Hohe Sättigung"
+    },
+    "desaturate": {
+        "message": "Entsättigen"
+    },
+    "reset_all_settings": {
+        "message": "Alle Einstellungen zurücksetzen"
+    },
+    "highlight_links": {
+        "message": "Links hervorheben"
+    },
+    "reading_mask_info": {
+        "message": "Wählen Sie zuerst den Maskentyp aus"
+    },
+    "screen_shader_info": {
+        "message": "Wählen Sie zuerst die Tönungsfarbe aus"
+    },
+    "hide_images": {
+        "message": "Bilder ausblenden"
+    },
+    "mask_color": {
+        "message": "Maskenfarbe"
+    },
+    "dictionary": {
+        "message": "Wörterbuch"
+    },
+    "show_reader": {
+        "message": "Leser anzeigen"
+    },
+    "text_to_speech": {
+        "message": "Text zu Sprache"
+    },
+    "read_this_page": {
+        "message": "Lesen Sie diese Seite"
+    },
+    "reading_speed": {
+        "message": "Lesegeschwindigkeit"
+    },
+    "reading_voice": {
+        "message": "Stimme lesen"
+    },
+    "voice_male": {
+        "message": "Stimme: Männlich"
+    },
+    "voice_female": {
+        "message": "Stimme: weiblich"
+    },
+    "beta_version": {
+        "message": "(Beta-Version: experimentell)"
+    },
+    "speed_normal": {
+        "message": "Geschwindigkeit: normal"
+    },
+    "speed_slow": {
+        "message": "Geschwindigkeit: Langsam"
+    },
+    "speed_fast": {
+        "message": "Geschwindigkeit: Schnell"
+    },
+    "reader_view": {
+        "message": "Leseransicht"
+    },
+    "read_epub": {
+        "message": "ePub-Datei lesen"
+    },
+    "color_schemes": {
+        "message": "Farbschemata"
+    },
+    "loading": {
+        "message": "Wird geladen"
+    },
+    "no_definition_found": {
+        "message": "Keine Definition gefunden"
+    },
+    "failed_to_load_definition": {
+        "message": "Definition konnte nicht geladen werden"
+    },
+    "text_highlight": {
+        "message": "Texthervorhebung"
+    }
+}

@@ -1,0 +1,37 @@
+<!-- 
+ *                      2022 
+ * All Rights Reserved for Oziku Technologies LLC
+ *            https://www.oziku.tech/
+-->
+
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<title data-locale=extName></title>
+<link rel=stylesheet href=../css/bootstrap.css>
+<link rel=stylesheet href=../css/epub-reader.css>
+</head>
+<body>
+<div id=main>
+<div id=epub-contents></div>
+<button id=open-epub class="btn btn-primary btn-primary-custom">Open ePub</button>
+<input id=epub-chooser type=file accept=.epub style=display:none>
+<div>
+<div id=arrow-left></div>
+<div id=arrow-right></div>
+</div>
+<div id=bottom-content class=small>
+Page #
+<input id=page-number>
+of
+<span id=total-page></span>
+</div>
+</div>
+<script src=../js/jquery.js></script>
+<script src=../js/jquery.inputfilter.min.js></script>
+<script src=../js/jszip.min.js></script>
+<script src=../js/epub.min.js></script>
+<script src=../js/epub-reader.js></script>
+</body>
+</html>

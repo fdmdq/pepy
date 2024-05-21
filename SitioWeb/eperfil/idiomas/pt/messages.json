@@ -1,0 +1,212 @@
+{
+    "extName": {
+        "message": "Perfil Portable"
+    },
+    "extNameFull": {
+        "message": "Perfil Portable"
+    },
+    "extDescription": {
+        "message": "Perfil Portable"
+    },
+    "setOnOffExtension": {
+        "message": "Definir o status Ligado/Desligado do ramal"
+    },
+    "logout": {
+        "message": "SAIR"
+    },
+    "please_rate": {
+        "message": "Avalie nossa extensão"
+    },
+    "login_failed": {
+        "message": "Falha no login: reinicie seu navegador ou computador para corrigir o problema"
+    },
+    "premium": {
+        "message": "Prêmio"
+    },
+    "trial_end_error": {
+        "message": "Para usar os recursos Premium: faça login na seção Conta"
+    },
+    "align_left": {
+        "message": "Alinhar à esquerda"
+    },
+    "align_center": {
+        "message": "Centralizar"
+    },
+    "align_right": {
+        "message": "Alinhar à direita"
+    },
+    "align_justify": {
+        "message": "Alinhar Justificar"
+    },
+    "show_widget": {
+        "message": "Mostrar widget"
+    },
+    "hide_widget": {
+        "message": "Ocultar widget"
+    },
+    "text_config": {
+        "message": "Configurações de texto"
+    },
+    "bigger_text": {
+        "message": "Texto maior"
+    },
+    "bold_text": {
+        "message": "Texto em negrito"
+    },
+    "italic_text": {
+        "message": "Texto em itálico"
+    },
+    "align_text": {
+        "message": "Alinhar texto"
+    },
+    "adjust_text_color": {
+        "message": "Ajustar a cor do texto"
+    },
+    "fonts_dyslexia_friendly": {
+        "message": "Fontes legíveis (amigáveis ​​para dislexia)"
+    },
+    "text_spacing": {
+        "message": "Espaçamento de Texto"
+    },
+    "between_lines": {
+        "message": "Entre Linhas"
+    },
+    "between_words": {
+        "message": "Entre palavras"
+    },
+    "between_letters": {
+        "message": "Entre letras"
+    },
+    "reading_ruler": {
+        "message": "Régua de leitura (compatível com TDAH):"
+    },
+    "mask_type": {
+        "message": "Tipo de máscara"
+    },
+    "height": {
+        "message": "Altura"
+    },
+    "brightness": {
+        "message": "Brilho"
+    },
+    "screen_shader": {
+        "message": "Sombreador de tela (proteção para os olhos):"
+    },
+    "adjust_tint_color": {
+        "message": "Ajustar a cor da tonalidade"
+    },
+    "extra_accessibility_tools": {
+        "message": "Ferramentas extras de acessibilidade"
+    },
+    "bigger_cursor": {
+        "message": "Cursor maior"
+    },
+    "mute_sounds": {
+        "message": "Silenciar sons"
+    },
+    "stop_animation": {
+        "message": "Parar animação"
+    },
+    "colors": {
+        "message": "Cores"
+    },
+    "contrast": {
+        "message": "Contraste"
+    },
+    "light_contrast": {
+        "message": "Contraste de luz"
+    },
+    "dark_contrast": {
+        "message": "Contraste escuro"
+    },
+    "invert_colors": {
+        "message": "Cores invertidas"
+    },
+    "saturation": {
+        "message": "Saturação"
+    },
+    "low_saturation": {
+        "message": "Baixa saturação"
+    },
+    "high_saturation": {
+        "message": "Alta saturação"
+    },
+    "desaturate": {
+        "message": "Dessaturar"
+    },
+    "reset_all_settings": {
+        "message": "Redefinir todas as configurações"
+    },
+    "highlight_links": {
+        "message": "Links de destaque"
+    },
+    "reading_mask_info": {
+        "message": "Selecione o tipo de máscara primeiro"
+    },
+    "screen_shader_info": {
+        "message": "Selecione a cor da tonalidade primeiro"
+    },
+    "hide_images": {
+        "message": "Ocultar imagens"
+    },
+    "mask_color": {
+        "message": "Cor da máscara"
+    },
+    "dictionary": {
+        "message": "Dicionário"
+    },
+    "show_reader": {
+        "message": "Mostrar leitor"
+    },
+    "text_to_speech": {
+        "message": "Texto para fala"
+    },
+    "read_this_page": {
+        "message": "Leia esta página"
+    },
+    "reading_speed": {
+        "message": "Velocidade de leitura"
+    },
+    "reading_voice": {
+        "message": "Leitura de voz"
+    },
+    "voice_male": {
+        "message": "Voz: Masculino"
+    },
+    "voice_female": {
+        "message": "Voz: Feminina"
+    },
+    "beta_version": {
+        "message": "(Versão Beta: experimental)"
+    },
+    "speed_normal": {
+        "message": "Velocidade: Normal"
+    },
+    "speed_slow": {
+        "message": "Velocidade: Lenta"
+    },
+    "speed_fast": {
+        "message": "Velocidade: Rápida"
+    },
+    "reader_view": {
+        "message": "Visualização do Leitor"
+    },
+    "read_epub": {
+        "message": "Ler arquivo ePub"
+    },
+    "color_schemes": {
+        "message": "Esquema de cores"
+    },
+    "loading": {
+        "message": "Carregando"
+    },
+    "no_definition_found": {
+        "message": "Nenhuma definição encontrada"
+    },
+    "failed_to_load_definition": {
+        "message": "Falha ao carregar a definição"
+    },
+    "text_highlight": {
+        "message": "Texto em destaque"
+    }
+}

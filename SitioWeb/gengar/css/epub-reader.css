@@ -1,0 +1,7 @@
+/*!
+ *                      2022 
+ * All Rights Reserved for Oziku Technologies LLC
+ *            https://www.oziku.tech/
+ */
+ 
+ :root{--defaultFont:Arial;--fontSize:1.15rem;--fontSizeSmall:75%;--background:#fffeff;--fontColor:black}body{background:var(--background);color:var(--fontColor);font-family:var(--defaultFont);font-size:var(--fontSize);padding:25px}hr{border-bottom:1px solid #b4bfd0}.small,small{font-size:var(--fontSizeSmall)!important}#open-epub{position:absolute;top:10px;left:10px}#epub-contents{position:absolute;top:0;left:25px;right:25px;bottom:70px}#epub-contents.hidden{opacity:0}#arrow-left,#arrow-right{position:absolute;top:50%;background-size:32px 32px;width:32px;height:32px;background-repeat:no-repeat;opacity:.6;cursor:pointer;margin:0 25px}#arrow-left:hover,#arrow-right:hover{opacity:1}#arrow-left{left:0;background-image:url(../res/icons/arrow-left.png)}#arrow-right{right:0;background-image:url(../res/icons/arrow-right.png)}#bottom-content{display:inline-block;position:fixed;bottom:25px;right:0;left:0;text-align:center}#page-number{width:70px}.btn-primary-custom{background-color:#10adff}
